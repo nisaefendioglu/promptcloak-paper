@@ -43,13 +43,13 @@ python3 desktop_app.py
 
 ## Veri
 
-Hizalı N=300 ve bölünmüş-sır JSON’ları GitHub’a konmaz (sentetik anahtar biçimi push korumasını tetikler). Bir kez indirin:
+Hizalı N=300, bölünmüş-sır ve tuzak JSON’ları GitHub’a konmaz (sentetik anahtar biçimi push korumasını tetikler). Hugging Face DOI 10.57967/hf/9800 paketinden bir kez indirin:
 
 ```bash
 python3 fetch_data.py
 ```
 
-Bu komut DOI 10.57967/hf/9800 dosyalarını `data/` altına alır ve tuzak setini `generate_hard_negatives_n300.py` ile üretir. Temiz küme (`data/extensions/clean_code_snippets_n300.json`) zaten repodadır.
+Bu komut aynı HF paketinden N=300, split ve `hard_negatives_n300` dosyalarını `data/` altına alır. Tuzak seti yoksa `generate_hard_negatives_n300.py` yerelde üretir. Temiz küme (`data/extensions/clean_code_snippets_n300.json`) zaten repodadır.
 
 ## Deneyleri tekrarlama
 
@@ -146,13 +146,13 @@ Two `python3 desktop_app.py` processes are two sessions; mapping tables stay iso
 
 ## Data
 
-The aligned N=300 and split-secret JSON files are not in Git (synthetic key shapes trip push protection). Download once:
+The aligned N=300, split-secret, and trap JSON files are not in Git (synthetic key shapes trip push protection). Download once from Hugging Face DOI 10.57967/hf/9800:
 
 ```bash
 python3 fetch_data.py
 ```
 
-This fetches DOI 10.57967/hf/9800 into `data/` and generates the trap set with `generate_hard_negatives_n300.py`. The clean set (`data/extensions/clean_code_snippets_n300.json`) is already in the repo.
+This fetches the N=300, split, and `hard_negatives_n300` files into `data/`. If the trap file is missing it is generated with `generate_hard_negatives_n300.py`. The clean set (`data/extensions/clean_code_snippets_n300.json`) is already in the repo.
 
 ## Reproduce the experiments
 

@@ -19,6 +19,7 @@ FILES = [
     ("synthetic_sensitive_data_in_source_code_n300.json", ROOT / "data" / "synthetic_sensitive_data_in_source_code_n300.json"),
     ("extensions/split_pattern_custom_n300.json", ROOT / "data" / "extensions" / "split_pattern_custom_n300.json"),
     ("extensions/clean_code_snippets_n300.json", ROOT / "data" / "extensions" / "clean_code_snippets_n300.json"),
+    ("extensions/hard_negatives_n300.json", ROOT / "data" / "extensions" / "hard_negatives_n300.json"),
 ]
 
 
@@ -32,10 +33,14 @@ def _get(url: str, dest: Path) -> None:
 
 def main() -> None:
     for rel, dest in FILES:
-        _get(HF + rel, dest)
-    from generate_hard_negatives_n300 import main as gen_hn
+        try:
+            _get(HF + rel, dest)
+        except Exception as exc:
+            print("indirilemedi", rel, exc)
+            if rel.endswith("hard_negatives_n300.json"):
+                from generate_hard_negatives_n300 import main as gen_hn
 
-    gen_hn()
+                gen_hn()
     print("hazır")
 
 
