@@ -1,0 +1,2706 @@
+{
+  "name": "clean_code_snippets_n300",
+  "description": "Sır içermeyen kod parçaları (N=300); yanlış alarm ölçümü.",
+  "records": [
+    {
+      "id": "CLN-0001",
+      "category": "clean",
+      "kind": "hello",
+      "language": "python",
+      "code_text": "def greet(name: str) -> str:\n    return f\"Hello, {name}!\"\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0002",
+      "category": "clean",
+      "kind": "sort",
+      "language": "python",
+      "code_text": "items = sorted(data, key=lambda x: x.score)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0003",
+      "category": "clean",
+      "kind": "pathlib",
+      "language": "python",
+      "code_text": "root = Path(__file__).resolve().parent\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0004",
+      "category": "clean",
+      "kind": "typing",
+      "language": "python",
+      "code_text": "def clamp(x: float, lo: float, hi: float) -> float:\n    return max(lo, min(hi, x))\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0005",
+      "category": "clean",
+      "kind": "dataclass",
+      "language": "python",
+      "code_text": "@dataclass\nclass Point:\n    x: int\n    y: int\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0006",
+      "category": "clean",
+      "kind": "async",
+      "language": "python",
+      "code_text": "async def fetch(url: str) -> bytes:\n    return await client.get(url)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0007",
+      "category": "clean",
+      "kind": "pytest",
+      "language": "python",
+      "code_text": "def test_add():\n    assert 1 + 1 == 2\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0008",
+      "category": "clean",
+      "kind": "logging",
+      "language": "python",
+      "code_text": "logger.info(\"job finished\")\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0009",
+      "category": "clean",
+      "kind": "json_load",
+      "language": "python",
+      "code_text": "payload = json.loads(raw)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0010",
+      "category": "clean",
+      "kind": "csv",
+      "language": "python",
+      "code_text": "for row in csv.reader(f):\n    process(row)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0011",
+      "category": "clean",
+      "kind": "arrow",
+      "language": "javascript",
+      "code_text": "const sum = (a, b) => a + b;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0012",
+      "category": "clean",
+      "kind": "map",
+      "language": "javascript",
+      "code_text": "const ids = rows.map((r) => r.id);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0013",
+      "category": "clean",
+      "kind": "fetch",
+      "language": "javascript",
+      "code_text": "const res = await fetch(\"https://api.github.com/repos/pallets/flask\");\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0014",
+      "category": "clean",
+      "kind": "react",
+      "language": "javascript",
+      "code_text": "export function Header() {\n  return <h1>Demo</h1>;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0015",
+      "category": "clean",
+      "kind": "eslint",
+      "language": "javascript",
+      "code_text": "/* eslint-disable no-console */\nconsole.log('ready');\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0016",
+      "category": "clean",
+      "kind": "interface",
+      "language": "typescript",
+      "code_text": "interface User {\n  id: number;\n  name: string;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0017",
+      "category": "clean",
+      "kind": "stream",
+      "language": "java",
+      "code_text": "List<String> names = users.stream().map(User::getName).toList();\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0018",
+      "category": "clean",
+      "kind": "record",
+      "language": "java",
+      "code_text": "public record Pair(int a, int b) {}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0019",
+      "category": "clean",
+      "kind": "data",
+      "language": "kotlin",
+      "code_text": "data class Item(val sku: String, val qty: Int)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0020",
+      "category": "clean",
+      "kind": "handler",
+      "language": "go",
+      "code_text": "http.HandleFunc(\"/health\", func(w http.ResponseWriter, r *http.Request) {\n    w.Write([]byte(\"ok\"))\n})\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0021",
+      "category": "clean",
+      "kind": "linq",
+      "language": "csharp",
+      "code_text": "var top = items.OrderByDescending(i => i.Score).Take(10);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0022",
+      "category": "clean",
+      "kind": "main",
+      "language": "rust",
+      "code_text": "fn main() {\n    println!(\"ok\");\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0023",
+      "category": "clean",
+      "kind": "set_e",
+      "language": "bash",
+      "code_text": "set -euo pipefail\ncd \"$WORKDIR\"\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0024",
+      "category": "clean",
+      "kind": "make",
+      "language": "bash",
+      "code_text": "make -j4 test\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0025",
+      "category": "clean",
+      "kind": "ci",
+      "language": "yaml",
+      "code_text": "on: [push]\njobs:\n  build:\n    runs-on: ubuntu-latest\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0026",
+      "category": "clean",
+      "kind": "k8s",
+      "language": "yaml",
+      "code_text": "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: app-config\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0027",
+      "category": "clean",
+      "kind": "package",
+      "language": "json",
+      "code_text": "{\"name\":\"demo-app\",\"version\":\"2.0.0\",\"private\":true}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0028",
+      "category": "clean",
+      "kind": "schema",
+      "language": "json",
+      "code_text": "{\"type\":\"object\",\"required\":[\"id\"],\"properties\":{\"id\":{\"type\":\"integer\"}}}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0029",
+      "category": "clean",
+      "kind": "dev",
+      "language": "env",
+      "code_text": "NODE_ENV=development\nPORT=3000\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0030",
+      "category": "clean",
+      "kind": "flags",
+      "language": "env",
+      "code_text": "DEBUG=0\nFEATURE_X=enabled\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0031",
+      "category": "clean",
+      "kind": "select",
+      "language": "sql",
+      "code_text": "SELECT id, title FROM posts WHERE published = true LIMIT 20;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0032",
+      "category": "clean",
+      "kind": "query",
+      "language": "graphql",
+      "code_text": "query Health { status }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0033",
+      "category": "clean",
+      "kind": "django_view",
+      "language": "python",
+      "code_text": "def index(request):\n    return render(request, 'home.html', {})\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0034",
+      "category": "clean",
+      "kind": "flask_route",
+      "language": "python",
+      "code_text": "@app.route('/')\ndef home():\n    return 'OK'\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0035",
+      "category": "clean",
+      "kind": "express",
+      "language": "javascript",
+      "code_text": "app.get('/health', (_req, res) => res.json({ ok: true }));\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0036",
+      "category": "clean",
+      "kind": "numpy",
+      "language": "python",
+      "code_text": "mean = float(values.mean())\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0037",
+      "category": "clean",
+      "kind": "regex_name",
+      "language": "python",
+      "code_text": "PATTERN = re.compile(r'\\bword\\b')\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0038",
+      "category": "clean",
+      "kind": "destructure",
+      "language": "javascript",
+      "code_text": "const { width, height } = size;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0039",
+      "category": "clean",
+      "kind": "junit",
+      "language": "java",
+      "code_text": "@Test\nvoid adds() {\n    assertEquals(3, 1 + 2);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0040",
+      "category": "clean",
+      "kind": "test",
+      "language": "go",
+      "code_text": "func TestAdd(t *testing.T) {\n    if Add(1, 2) != 3 {\n        t.Fatal(\"fail\")\n    }\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0041",
+      "category": "clean",
+      "kind": "context",
+      "language": "python",
+      "code_text": "with open(path, 'r', encoding='utf-8') as f:\n    text = f.read()\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0042",
+      "category": "clean",
+      "kind": "promise",
+      "language": "javascript",
+      "code_text": "return Promise.all(tasks.map(run));\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0043",
+      "category": "clean",
+      "kind": "enum",
+      "language": "typescript",
+      "code_text": "enum Status { Idle, Running, Done }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0044",
+      "category": "clean",
+      "kind": "docker",
+      "language": "yaml",
+      "code_text": "FROM node:20-alpine\nWORKDIR /app\nCMD [\"node\", \"server.js\"]\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0045",
+      "category": "clean",
+      "kind": "readme",
+      "language": "markdown",
+      "code_text": "# Demo\n\nRun `npm test`.\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0046",
+      "category": "clean",
+      "kind": "enum",
+      "language": "python",
+      "code_text": "class Color(Enum):\n    RED = 1\n    GREEN = 2\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0047",
+      "category": "clean",
+      "kind": "class",
+      "language": "javascript",
+      "code_text": "class Queue {\n  push(v) { this.items.push(v); }\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0048",
+      "category": "clean",
+      "kind": "builder",
+      "language": "java",
+      "code_text": "HttpClient client = HttpClient.newBuilder().build();\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0049",
+      "category": "clean",
+      "kind": "fun",
+      "language": "kotlin",
+      "code_text": "fun fib(n: Int): Int = if (n <= 1) n else fib(n - 1) + fib(n - 2)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0050",
+      "category": "clean",
+      "kind": "docstring",
+      "language": "python",
+      "code_text": "\"\"\"Module doc.\"\"\"\nVERSION = \"1.0.0\"\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0051",
+      "category": "clean",
+      "kind": "gen_0051",
+      "language": "python",
+      "code_text": "for idx_51 in range(12):\n    process(idx_51)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0052",
+      "category": "clean",
+      "kind": "gen_0052",
+      "language": "python",
+      "code_text": "def aggregate_52(rows: list[int]) -> int:\n    return sum(rows) + 52\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0053",
+      "category": "clean",
+      "kind": "gen_0053",
+      "language": "python",
+      "code_text": "class Widget_53:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0054",
+      "category": "clean",
+      "kind": "gen_0054",
+      "language": "python",
+      "code_text": "CACHE_TTL_54 = 3240\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0055",
+      "category": "clean",
+      "kind": "gen_0055",
+      "language": "python",
+      "code_text": "for idx_55 in range(16):\n    process(idx_55)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0056",
+      "category": "clean",
+      "kind": "gen_0056",
+      "language": "python",
+      "code_text": "def aggregate_56(rows: list[int]) -> int:\n    return sum(rows) + 56\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0057",
+      "category": "clean",
+      "kind": "gen_0057",
+      "language": "python",
+      "code_text": "class Widget_57:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0058",
+      "category": "clean",
+      "kind": "gen_0058",
+      "language": "python",
+      "code_text": "CACHE_TTL_58 = 3480\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0059",
+      "category": "clean",
+      "kind": "gen_0059",
+      "language": "python",
+      "code_text": "for idx_59 in range(20):\n    process(idx_59)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0060",
+      "category": "clean",
+      "kind": "gen_0060",
+      "language": "python",
+      "code_text": "def aggregate_60(rows: list[int]) -> int:\n    return sum(rows) + 60\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0061",
+      "category": "clean",
+      "kind": "gen_0061",
+      "language": "python",
+      "code_text": "class Widget_61:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0062",
+      "category": "clean",
+      "kind": "gen_0062",
+      "language": "python",
+      "code_text": "CACHE_TTL_62 = 3720\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0063",
+      "category": "clean",
+      "kind": "gen_0063",
+      "language": "python",
+      "code_text": "for idx_63 in range(4):\n    process(idx_63)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0064",
+      "category": "clean",
+      "kind": "gen_0064",
+      "language": "python",
+      "code_text": "def aggregate_64(rows: list[int]) -> int:\n    return sum(rows) + 64\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0065",
+      "category": "clean",
+      "kind": "gen_0065",
+      "language": "python",
+      "code_text": "class Widget_65:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0066",
+      "category": "clean",
+      "kind": "gen_0066",
+      "language": "python",
+      "code_text": "CACHE_TTL_66 = 3960\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0067",
+      "category": "clean",
+      "kind": "gen_0067",
+      "language": "python",
+      "code_text": "for idx_67 in range(8):\n    process(idx_67)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0068",
+      "category": "clean",
+      "kind": "gen_0068",
+      "language": "python",
+      "code_text": "def aggregate_68(rows: list[int]) -> int:\n    return sum(rows) + 68\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0069",
+      "category": "clean",
+      "kind": "gen_0069",
+      "language": "python",
+      "code_text": "class Widget_69:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0070",
+      "category": "clean",
+      "kind": "gen_0070",
+      "language": "python",
+      "code_text": "CACHE_TTL_70 = 4200\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0071",
+      "category": "clean",
+      "kind": "gen_0071",
+      "language": "python",
+      "code_text": "for idx_71 in range(12):\n    process(idx_71)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0072",
+      "category": "clean",
+      "kind": "gen_0072",
+      "language": "python",
+      "code_text": "def aggregate_72(rows: list[int]) -> int:\n    return sum(rows) + 72\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0073",
+      "category": "clean",
+      "kind": "gen_0073",
+      "language": "python",
+      "code_text": "class Widget_73:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0074",
+      "category": "clean",
+      "kind": "gen_0074",
+      "language": "python",
+      "code_text": "CACHE_TTL_74 = 4440\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0075",
+      "category": "clean",
+      "kind": "gen_0075",
+      "language": "python",
+      "code_text": "for idx_75 in range(16):\n    process(idx_75)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0076",
+      "category": "clean",
+      "kind": "gen_0076",
+      "language": "python",
+      "code_text": "def aggregate_76(rows: list[int]) -> int:\n    return sum(rows) + 76\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0077",
+      "category": "clean",
+      "kind": "gen_0077",
+      "language": "python",
+      "code_text": "class Widget_77:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0078",
+      "category": "clean",
+      "kind": "gen_0078",
+      "language": "python",
+      "code_text": "CACHE_TTL_78 = 4680\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0079",
+      "category": "clean",
+      "kind": "gen_0079",
+      "language": "python",
+      "code_text": "for idx_79 in range(20):\n    process(idx_79)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0080",
+      "category": "clean",
+      "kind": "gen_0080",
+      "language": "python",
+      "code_text": "def aggregate_80(rows: list[int]) -> int:\n    return sum(rows) + 80\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0081",
+      "category": "clean",
+      "kind": "gen_0081",
+      "language": "python",
+      "code_text": "class Widget_81:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0082",
+      "category": "clean",
+      "kind": "gen_0082",
+      "language": "python",
+      "code_text": "CACHE_TTL_82 = 4920\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0083",
+      "category": "clean",
+      "kind": "gen_0083",
+      "language": "python",
+      "code_text": "for idx_83 in range(4):\n    process(idx_83)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0084",
+      "category": "clean",
+      "kind": "gen_0084",
+      "language": "python",
+      "code_text": "def aggregate_84(rows: list[int]) -> int:\n    return sum(rows) + 84\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0085",
+      "category": "clean",
+      "kind": "gen_0085",
+      "language": "python",
+      "code_text": "class Widget_85:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0086",
+      "category": "clean",
+      "kind": "gen_0086",
+      "language": "python",
+      "code_text": "CACHE_TTL_86 = 5160\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0087",
+      "category": "clean",
+      "kind": "gen_0087",
+      "language": "python",
+      "code_text": "for idx_87 in range(8):\n    process(idx_87)\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0088",
+      "category": "clean",
+      "kind": "gen_0088",
+      "language": "python",
+      "code_text": "def aggregate_88(rows: list[int]) -> int:\n    return sum(rows) + 88\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0089",
+      "category": "clean",
+      "kind": "gen_0089",
+      "language": "python",
+      "code_text": "class Widget_89:\n    def __init__(self, label: str):\n        self.label = label\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0090",
+      "category": "clean",
+      "kind": "gen_0090",
+      "language": "python",
+      "code_text": "CACHE_TTL_90 = 5400\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0091",
+      "category": "clean",
+      "kind": "gen_0091",
+      "language": "javascript",
+      "code_text": "export function merge_91(left, right) {\n  return [...left, ...right].slice(0, 96);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0092",
+      "category": "clean",
+      "kind": "gen_0092",
+      "language": "javascript",
+      "code_text": "export function merge_92(left, right) {\n  return [...left, ...right].slice(0, 97);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0093",
+      "category": "clean",
+      "kind": "gen_0093",
+      "language": "javascript",
+      "code_text": "export function merge_93(left, right) {\n  return [...left, ...right].slice(0, 98);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0094",
+      "category": "clean",
+      "kind": "gen_0094",
+      "language": "javascript",
+      "code_text": "export function merge_94(left, right) {\n  return [...left, ...right].slice(0, 99);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0095",
+      "category": "clean",
+      "kind": "gen_0095",
+      "language": "javascript",
+      "code_text": "export function merge_95(left, right) {\n  return [...left, ...right].slice(0, 100);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0096",
+      "category": "clean",
+      "kind": "gen_0096",
+      "language": "javascript",
+      "code_text": "export function merge_96(left, right) {\n  return [...left, ...right].slice(0, 101);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0097",
+      "category": "clean",
+      "kind": "gen_0097",
+      "language": "javascript",
+      "code_text": "export function merge_97(left, right) {\n  return [...left, ...right].slice(0, 5);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0098",
+      "category": "clean",
+      "kind": "gen_0098",
+      "language": "javascript",
+      "code_text": "export function merge_98(left, right) {\n  return [...left, ...right].slice(0, 6);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0099",
+      "category": "clean",
+      "kind": "gen_0099",
+      "language": "javascript",
+      "code_text": "export function merge_99(left, right) {\n  return [...left, ...right].slice(0, 7);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0100",
+      "category": "clean",
+      "kind": "gen_0100",
+      "language": "javascript",
+      "code_text": "export function merge_100(left, right) {\n  return [...left, ...right].slice(0, 8);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0101",
+      "category": "clean",
+      "kind": "gen_0101",
+      "language": "javascript",
+      "code_text": "export function merge_101(left, right) {\n  return [...left, ...right].slice(0, 9);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0102",
+      "category": "clean",
+      "kind": "gen_0102",
+      "language": "javascript",
+      "code_text": "export function merge_102(left, right) {\n  return [...left, ...right].slice(0, 10);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0103",
+      "category": "clean",
+      "kind": "gen_0103",
+      "language": "javascript",
+      "code_text": "export function merge_103(left, right) {\n  return [...left, ...right].slice(0, 11);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0104",
+      "category": "clean",
+      "kind": "gen_0104",
+      "language": "javascript",
+      "code_text": "export function merge_104(left, right) {\n  return [...left, ...right].slice(0, 12);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0105",
+      "category": "clean",
+      "kind": "gen_0105",
+      "language": "javascript",
+      "code_text": "export function merge_105(left, right) {\n  return [...left, ...right].slice(0, 13);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0106",
+      "category": "clean",
+      "kind": "gen_0106",
+      "language": "javascript",
+      "code_text": "export function merge_106(left, right) {\n  return [...left, ...right].slice(0, 14);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0107",
+      "category": "clean",
+      "kind": "gen_0107",
+      "language": "javascript",
+      "code_text": "export function merge_107(left, right) {\n  return [...left, ...right].slice(0, 15);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0108",
+      "category": "clean",
+      "kind": "gen_0108",
+      "language": "javascript",
+      "code_text": "export function merge_108(left, right) {\n  return [...left, ...right].slice(0, 16);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0109",
+      "category": "clean",
+      "kind": "gen_0109",
+      "language": "javascript",
+      "code_text": "export function merge_109(left, right) {\n  return [...left, ...right].slice(0, 17);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0110",
+      "category": "clean",
+      "kind": "gen_0110",
+      "language": "javascript",
+      "code_text": "export function merge_110(left, right) {\n  return [...left, ...right].slice(0, 18);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0111",
+      "category": "clean",
+      "kind": "gen_0111",
+      "language": "javascript",
+      "code_text": "export function merge_111(left, right) {\n  return [...left, ...right].slice(0, 19);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0112",
+      "category": "clean",
+      "kind": "gen_0112",
+      "language": "javascript",
+      "code_text": "export function merge_112(left, right) {\n  return [...left, ...right].slice(0, 20);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0113",
+      "category": "clean",
+      "kind": "gen_0113",
+      "language": "javascript",
+      "code_text": "export function merge_113(left, right) {\n  return [...left, ...right].slice(0, 21);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0114",
+      "category": "clean",
+      "kind": "gen_0114",
+      "language": "javascript",
+      "code_text": "export function merge_114(left, right) {\n  return [...left, ...right].slice(0, 22);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0115",
+      "category": "clean",
+      "kind": "gen_0115",
+      "language": "javascript",
+      "code_text": "export function merge_115(left, right) {\n  return [...left, ...right].slice(0, 23);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0116",
+      "category": "clean",
+      "kind": "gen_0116",
+      "language": "javascript",
+      "code_text": "export function merge_116(left, right) {\n  return [...left, ...right].slice(0, 24);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0117",
+      "category": "clean",
+      "kind": "gen_0117",
+      "language": "javascript",
+      "code_text": "export function merge_117(left, right) {\n  return [...left, ...right].slice(0, 25);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0118",
+      "category": "clean",
+      "kind": "gen_0118",
+      "language": "javascript",
+      "code_text": "export function merge_118(left, right) {\n  return [...left, ...right].slice(0, 26);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0119",
+      "category": "clean",
+      "kind": "gen_0119",
+      "language": "javascript",
+      "code_text": "export function merge_119(left, right) {\n  return [...left, ...right].slice(0, 27);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0120",
+      "category": "clean",
+      "kind": "gen_0120",
+      "language": "javascript",
+      "code_text": "export function merge_120(left, right) {\n  return [...left, ...right].slice(0, 28);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0121",
+      "category": "clean",
+      "kind": "gen_0121",
+      "language": "javascript",
+      "code_text": "export function merge_121(left, right) {\n  return [...left, ...right].slice(0, 29);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0122",
+      "category": "clean",
+      "kind": "gen_0122",
+      "language": "javascript",
+      "code_text": "export function merge_122(left, right) {\n  return [...left, ...right].slice(0, 30);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0123",
+      "category": "clean",
+      "kind": "gen_0123",
+      "language": "javascript",
+      "code_text": "export function merge_123(left, right) {\n  return [...left, ...right].slice(0, 31);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0124",
+      "category": "clean",
+      "kind": "gen_0124",
+      "language": "javascript",
+      "code_text": "export function merge_124(left, right) {\n  return [...left, ...right].slice(0, 32);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0125",
+      "category": "clean",
+      "kind": "gen_0125",
+      "language": "javascript",
+      "code_text": "export function merge_125(left, right) {\n  return [...left, ...right].slice(0, 33);\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0126",
+      "category": "clean",
+      "kind": "gen_0126",
+      "language": "typescript",
+      "code_text": "type Slot_126 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0127",
+      "category": "clean",
+      "kind": "gen_0127",
+      "language": "typescript",
+      "code_text": "type Slot_127 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0128",
+      "category": "clean",
+      "kind": "gen_0128",
+      "language": "typescript",
+      "code_text": "type Slot_128 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0129",
+      "category": "clean",
+      "kind": "gen_0129",
+      "language": "typescript",
+      "code_text": "type Slot_129 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0130",
+      "category": "clean",
+      "kind": "gen_0130",
+      "language": "typescript",
+      "code_text": "type Slot_130 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0131",
+      "category": "clean",
+      "kind": "gen_0131",
+      "language": "typescript",
+      "code_text": "type Slot_131 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0132",
+      "category": "clean",
+      "kind": "gen_0132",
+      "language": "typescript",
+      "code_text": "type Slot_132 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0133",
+      "category": "clean",
+      "kind": "gen_0133",
+      "language": "typescript",
+      "code_text": "type Slot_133 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0134",
+      "category": "clean",
+      "kind": "gen_0134",
+      "language": "typescript",
+      "code_text": "type Slot_134 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0135",
+      "category": "clean",
+      "kind": "gen_0135",
+      "language": "typescript",
+      "code_text": "type Slot_135 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0136",
+      "category": "clean",
+      "kind": "gen_0136",
+      "language": "typescript",
+      "code_text": "type Slot_136 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0137",
+      "category": "clean",
+      "kind": "gen_0137",
+      "language": "typescript",
+      "code_text": "type Slot_137 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0138",
+      "category": "clean",
+      "kind": "gen_0138",
+      "language": "typescript",
+      "code_text": "type Slot_138 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0139",
+      "category": "clean",
+      "kind": "gen_0139",
+      "language": "typescript",
+      "code_text": "type Slot_139 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0140",
+      "category": "clean",
+      "kind": "gen_0140",
+      "language": "typescript",
+      "code_text": "type Slot_140 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0141",
+      "category": "clean",
+      "kind": "gen_0141",
+      "language": "typescript",
+      "code_text": "type Slot_141 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0142",
+      "category": "clean",
+      "kind": "gen_0142",
+      "language": "typescript",
+      "code_text": "type Slot_142 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0143",
+      "category": "clean",
+      "kind": "gen_0143",
+      "language": "typescript",
+      "code_text": "type Slot_143 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0144",
+      "category": "clean",
+      "kind": "gen_0144",
+      "language": "typescript",
+      "code_text": "type Slot_144 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0145",
+      "category": "clean",
+      "kind": "gen_0145",
+      "language": "typescript",
+      "code_text": "type Slot_145 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0146",
+      "category": "clean",
+      "kind": "gen_0146",
+      "language": "typescript",
+      "code_text": "type Slot_146 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0147",
+      "category": "clean",
+      "kind": "gen_0147",
+      "language": "typescript",
+      "code_text": "type Slot_147 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0148",
+      "category": "clean",
+      "kind": "gen_0148",
+      "language": "typescript",
+      "code_text": "type Slot_148 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0149",
+      "category": "clean",
+      "kind": "gen_0149",
+      "language": "typescript",
+      "code_text": "type Slot_149 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0150",
+      "category": "clean",
+      "kind": "gen_0150",
+      "language": "typescript",
+      "code_text": "type Slot_150 = { id: number; label: string };\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0151",
+      "category": "clean",
+      "kind": "gen_0151",
+      "language": "java",
+      "code_text": "public final class Block_151 {\n    private final int size = 54;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0152",
+      "category": "clean",
+      "kind": "gen_0152",
+      "language": "java",
+      "code_text": "public final class Block_152 {\n    private final int size = 55;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0153",
+      "category": "clean",
+      "kind": "gen_0153",
+      "language": "java",
+      "code_text": "public final class Block_153 {\n    private final int size = 56;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0154",
+      "category": "clean",
+      "kind": "gen_0154",
+      "language": "java",
+      "code_text": "public final class Block_154 {\n    private final int size = 57;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0155",
+      "category": "clean",
+      "kind": "gen_0155",
+      "language": "java",
+      "code_text": "public final class Block_155 {\n    private final int size = 58;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0156",
+      "category": "clean",
+      "kind": "gen_0156",
+      "language": "java",
+      "code_text": "public final class Block_156 {\n    private final int size = 59;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0157",
+      "category": "clean",
+      "kind": "gen_0157",
+      "language": "java",
+      "code_text": "public final class Block_157 {\n    private final int size = 60;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0158",
+      "category": "clean",
+      "kind": "gen_0158",
+      "language": "java",
+      "code_text": "public final class Block_158 {\n    private final int size = 61;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0159",
+      "category": "clean",
+      "kind": "gen_0159",
+      "language": "java",
+      "code_text": "public final class Block_159 {\n    private final int size = 62;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0160",
+      "category": "clean",
+      "kind": "gen_0160",
+      "language": "java",
+      "code_text": "public final class Block_160 {\n    private final int size = 63;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0161",
+      "category": "clean",
+      "kind": "gen_0161",
+      "language": "java",
+      "code_text": "public final class Block_161 {\n    private final int size = 64;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0162",
+      "category": "clean",
+      "kind": "gen_0162",
+      "language": "java",
+      "code_text": "public final class Block_162 {\n    private final int size = 65;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0163",
+      "category": "clean",
+      "kind": "gen_0163",
+      "language": "java",
+      "code_text": "public final class Block_163 {\n    private final int size = 66;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0164",
+      "category": "clean",
+      "kind": "gen_0164",
+      "language": "java",
+      "code_text": "public final class Block_164 {\n    private final int size = 67;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0165",
+      "category": "clean",
+      "kind": "gen_0165",
+      "language": "java",
+      "code_text": "public final class Block_165 {\n    private final int size = 68;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0166",
+      "category": "clean",
+      "kind": "gen_0166",
+      "language": "java",
+      "code_text": "public final class Block_166 {\n    private final int size = 69;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0167",
+      "category": "clean",
+      "kind": "gen_0167",
+      "language": "java",
+      "code_text": "public final class Block_167 {\n    private final int size = 70;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0168",
+      "category": "clean",
+      "kind": "gen_0168",
+      "language": "java",
+      "code_text": "public final class Block_168 {\n    private final int size = 71;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0169",
+      "category": "clean",
+      "kind": "gen_0169",
+      "language": "java",
+      "code_text": "public final class Block_169 {\n    private final int size = 72;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0170",
+      "category": "clean",
+      "kind": "gen_0170",
+      "language": "java",
+      "code_text": "public final class Block_170 {\n    private final int size = 73;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0171",
+      "category": "clean",
+      "kind": "gen_0171",
+      "language": "java",
+      "code_text": "public final class Block_171 {\n    private final int size = 74;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0172",
+      "category": "clean",
+      "kind": "gen_0172",
+      "language": "java",
+      "code_text": "public final class Block_172 {\n    private final int size = 75;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0173",
+      "category": "clean",
+      "kind": "gen_0173",
+      "language": "java",
+      "code_text": "public final class Block_173 {\n    private final int size = 76;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0174",
+      "category": "clean",
+      "kind": "gen_0174",
+      "language": "java",
+      "code_text": "public final class Block_174 {\n    private final int size = 77;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0175",
+      "category": "clean",
+      "kind": "gen_0175",
+      "language": "java",
+      "code_text": "public final class Block_175 {\n    private final int size = 78;\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0176",
+      "category": "clean",
+      "kind": "gen_0176",
+      "language": "kotlin",
+      "code_text": "fun repeat_176(times: Int) = (1..times).map { it * 79 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0177",
+      "category": "clean",
+      "kind": "gen_0177",
+      "language": "kotlin",
+      "code_text": "fun repeat_177(times: Int) = (1..times).map { it * 80 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0178",
+      "category": "clean",
+      "kind": "gen_0178",
+      "language": "kotlin",
+      "code_text": "fun repeat_178(times: Int) = (1..times).map { it * 81 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0179",
+      "category": "clean",
+      "kind": "gen_0179",
+      "language": "kotlin",
+      "code_text": "fun repeat_179(times: Int) = (1..times).map { it * 82 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0180",
+      "category": "clean",
+      "kind": "gen_0180",
+      "language": "kotlin",
+      "code_text": "fun repeat_180(times: Int) = (1..times).map { it * 83 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0181",
+      "category": "clean",
+      "kind": "gen_0181",
+      "language": "kotlin",
+      "code_text": "fun repeat_181(times: Int) = (1..times).map { it * 84 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0182",
+      "category": "clean",
+      "kind": "gen_0182",
+      "language": "kotlin",
+      "code_text": "fun repeat_182(times: Int) = (1..times).map { it * 85 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0183",
+      "category": "clean",
+      "kind": "gen_0183",
+      "language": "kotlin",
+      "code_text": "fun repeat_183(times: Int) = (1..times).map { it * 86 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0184",
+      "category": "clean",
+      "kind": "gen_0184",
+      "language": "kotlin",
+      "code_text": "fun repeat_184(times: Int) = (1..times).map { it * 87 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0185",
+      "category": "clean",
+      "kind": "gen_0185",
+      "language": "kotlin",
+      "code_text": "fun repeat_185(times: Int) = (1..times).map { it * 88 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0186",
+      "category": "clean",
+      "kind": "gen_0186",
+      "language": "kotlin",
+      "code_text": "fun repeat_186(times: Int) = (1..times).map { it * 89 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0187",
+      "category": "clean",
+      "kind": "gen_0187",
+      "language": "kotlin",
+      "code_text": "fun repeat_187(times: Int) = (1..times).map { it * 90 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0188",
+      "category": "clean",
+      "kind": "gen_0188",
+      "language": "kotlin",
+      "code_text": "fun repeat_188(times: Int) = (1..times).map { it * 91 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0189",
+      "category": "clean",
+      "kind": "gen_0189",
+      "language": "kotlin",
+      "code_text": "fun repeat_189(times: Int) = (1..times).map { it * 92 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0190",
+      "category": "clean",
+      "kind": "gen_0190",
+      "language": "kotlin",
+      "code_text": "fun repeat_190(times: Int) = (1..times).map { it * 93 }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0191",
+      "category": "clean",
+      "kind": "gen_0191",
+      "language": "go",
+      "code_text": "func Sum191(a, b int) int {\n\treturn a + b + 94\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0192",
+      "category": "clean",
+      "kind": "gen_0192",
+      "language": "go",
+      "code_text": "func Sum192(a, b int) int {\n\treturn a + b + 95\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0193",
+      "category": "clean",
+      "kind": "gen_0193",
+      "language": "go",
+      "code_text": "func Sum193(a, b int) int {\n\treturn a + b + 96\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0194",
+      "category": "clean",
+      "kind": "gen_0194",
+      "language": "go",
+      "code_text": "func Sum194(a, b int) int {\n\treturn a + b + 0\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0195",
+      "category": "clean",
+      "kind": "gen_0195",
+      "language": "go",
+      "code_text": "func Sum195(a, b int) int {\n\treturn a + b + 1\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0196",
+      "category": "clean",
+      "kind": "gen_0196",
+      "language": "go",
+      "code_text": "func Sum196(a, b int) int {\n\treturn a + b + 2\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0197",
+      "category": "clean",
+      "kind": "gen_0197",
+      "language": "go",
+      "code_text": "func Sum197(a, b int) int {\n\treturn a + b + 3\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0198",
+      "category": "clean",
+      "kind": "gen_0198",
+      "language": "go",
+      "code_text": "func Sum198(a, b int) int {\n\treturn a + b + 4\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0199",
+      "category": "clean",
+      "kind": "gen_0199",
+      "language": "go",
+      "code_text": "func Sum199(a, b int) int {\n\treturn a + b + 5\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0200",
+      "category": "clean",
+      "kind": "gen_0200",
+      "language": "go",
+      "code_text": "func Sum200(a, b int) int {\n\treturn a + b + 6\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0201",
+      "category": "clean",
+      "kind": "gen_0201",
+      "language": "go",
+      "code_text": "func Sum201(a, b int) int {\n\treturn a + b + 7\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0202",
+      "category": "clean",
+      "kind": "gen_0202",
+      "language": "go",
+      "code_text": "func Sum202(a, b int) int {\n\treturn a + b + 8\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0203",
+      "category": "clean",
+      "kind": "gen_0203",
+      "language": "go",
+      "code_text": "func Sum203(a, b int) int {\n\treturn a + b + 9\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0204",
+      "category": "clean",
+      "kind": "gen_0204",
+      "language": "go",
+      "code_text": "func Sum204(a, b int) int {\n\treturn a + b + 10\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0205",
+      "category": "clean",
+      "kind": "gen_0205",
+      "language": "go",
+      "code_text": "func Sum205(a, b int) int {\n\treturn a + b + 11\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0206",
+      "category": "clean",
+      "kind": "gen_0206",
+      "language": "go",
+      "code_text": "func Sum206(a, b int) int {\n\treturn a + b + 12\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0207",
+      "category": "clean",
+      "kind": "gen_0207",
+      "language": "go",
+      "code_text": "func Sum207(a, b int) int {\n\treturn a + b + 13\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0208",
+      "category": "clean",
+      "kind": "gen_0208",
+      "language": "go",
+      "code_text": "func Sum208(a, b int) int {\n\treturn a + b + 14\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0209",
+      "category": "clean",
+      "kind": "gen_0209",
+      "language": "go",
+      "code_text": "func Sum209(a, b int) int {\n\treturn a + b + 15\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0210",
+      "category": "clean",
+      "kind": "gen_0210",
+      "language": "go",
+      "code_text": "func Sum210(a, b int) int {\n\treturn a + b + 16\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0211",
+      "category": "clean",
+      "kind": "gen_0211",
+      "language": "csharp",
+      "code_text": "public record Metric211(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0212",
+      "category": "clean",
+      "kind": "gen_0212",
+      "language": "csharp",
+      "code_text": "public record Metric212(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0213",
+      "category": "clean",
+      "kind": "gen_0213",
+      "language": "csharp",
+      "code_text": "public record Metric213(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0214",
+      "category": "clean",
+      "kind": "gen_0214",
+      "language": "csharp",
+      "code_text": "public record Metric214(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0215",
+      "category": "clean",
+      "kind": "gen_0215",
+      "language": "csharp",
+      "code_text": "public record Metric215(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0216",
+      "category": "clean",
+      "kind": "gen_0216",
+      "language": "csharp",
+      "code_text": "public record Metric216(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0217",
+      "category": "clean",
+      "kind": "gen_0217",
+      "language": "csharp",
+      "code_text": "public record Metric217(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0218",
+      "category": "clean",
+      "kind": "gen_0218",
+      "language": "csharp",
+      "code_text": "public record Metric218(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0219",
+      "category": "clean",
+      "kind": "gen_0219",
+      "language": "csharp",
+      "code_text": "public record Metric219(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0220",
+      "category": "clean",
+      "kind": "gen_0220",
+      "language": "csharp",
+      "code_text": "public record Metric220(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0221",
+      "category": "clean",
+      "kind": "gen_0221",
+      "language": "csharp",
+      "code_text": "public record Metric221(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0222",
+      "category": "clean",
+      "kind": "gen_0222",
+      "language": "csharp",
+      "code_text": "public record Metric222(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0223",
+      "category": "clean",
+      "kind": "gen_0223",
+      "language": "csharp",
+      "code_text": "public record Metric223(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0224",
+      "category": "clean",
+      "kind": "gen_0224",
+      "language": "csharp",
+      "code_text": "public record Metric224(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0225",
+      "category": "clean",
+      "kind": "gen_0225",
+      "language": "csharp",
+      "code_text": "public record Metric225(int Value, string Unit);\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0226",
+      "category": "clean",
+      "kind": "gen_0226",
+      "language": "rust",
+      "code_text": "pub fn scale_226(x: i32) -> i32 {\n    x.saturating_mul(3)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0227",
+      "category": "clean",
+      "kind": "gen_0227",
+      "language": "rust",
+      "code_text": "pub fn scale_227(x: i32) -> i32 {\n    x.saturating_mul(4)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0228",
+      "category": "clean",
+      "kind": "gen_0228",
+      "language": "rust",
+      "code_text": "pub fn scale_228(x: i32) -> i32 {\n    x.saturating_mul(5)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0229",
+      "category": "clean",
+      "kind": "gen_0229",
+      "language": "rust",
+      "code_text": "pub fn scale_229(x: i32) -> i32 {\n    x.saturating_mul(6)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0230",
+      "category": "clean",
+      "kind": "gen_0230",
+      "language": "rust",
+      "code_text": "pub fn scale_230(x: i32) -> i32 {\n    x.saturating_mul(7)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0231",
+      "category": "clean",
+      "kind": "gen_0231",
+      "language": "rust",
+      "code_text": "pub fn scale_231(x: i32) -> i32 {\n    x.saturating_mul(8)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0232",
+      "category": "clean",
+      "kind": "gen_0232",
+      "language": "rust",
+      "code_text": "pub fn scale_232(x: i32) -> i32 {\n    x.saturating_mul(9)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0233",
+      "category": "clean",
+      "kind": "gen_0233",
+      "language": "rust",
+      "code_text": "pub fn scale_233(x: i32) -> i32 {\n    x.saturating_mul(10)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0234",
+      "category": "clean",
+      "kind": "gen_0234",
+      "language": "rust",
+      "code_text": "pub fn scale_234(x: i32) -> i32 {\n    x.saturating_mul(1)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0235",
+      "category": "clean",
+      "kind": "gen_0235",
+      "language": "rust",
+      "code_text": "pub fn scale_235(x: i32) -> i32 {\n    x.saturating_mul(2)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0236",
+      "category": "clean",
+      "kind": "gen_0236",
+      "language": "rust",
+      "code_text": "pub fn scale_236(x: i32) -> i32 {\n    x.saturating_mul(3)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0237",
+      "category": "clean",
+      "kind": "gen_0237",
+      "language": "rust",
+      "code_text": "pub fn scale_237(x: i32) -> i32 {\n    x.saturating_mul(4)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0238",
+      "category": "clean",
+      "kind": "gen_0238",
+      "language": "rust",
+      "code_text": "pub fn scale_238(x: i32) -> i32 {\n    x.saturating_mul(5)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0239",
+      "category": "clean",
+      "kind": "gen_0239",
+      "language": "rust",
+      "code_text": "pub fn scale_239(x: i32) -> i32 {\n    x.saturating_mul(6)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0240",
+      "category": "clean",
+      "kind": "gen_0240",
+      "language": "rust",
+      "code_text": "pub fn scale_240(x: i32) -> i32 {\n    x.saturating_mul(7)\n}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0241",
+      "category": "clean",
+      "kind": "gen_0241",
+      "language": "bash",
+      "code_text": "echo \"batch-241\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0242",
+      "category": "clean",
+      "kind": "gen_0242",
+      "language": "bash",
+      "code_text": "echo \"batch-242\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0243",
+      "category": "clean",
+      "kind": "gen_0243",
+      "language": "bash",
+      "code_text": "echo \"batch-243\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0244",
+      "category": "clean",
+      "kind": "gen_0244",
+      "language": "bash",
+      "code_text": "echo \"batch-244\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0245",
+      "category": "clean",
+      "kind": "gen_0245",
+      "language": "bash",
+      "code_text": "echo \"batch-245\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0246",
+      "category": "clean",
+      "kind": "gen_0246",
+      "language": "bash",
+      "code_text": "echo \"batch-246\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0247",
+      "category": "clean",
+      "kind": "gen_0247",
+      "language": "bash",
+      "code_text": "echo \"batch-247\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0248",
+      "category": "clean",
+      "kind": "gen_0248",
+      "language": "bash",
+      "code_text": "echo \"batch-248\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0249",
+      "category": "clean",
+      "kind": "gen_0249",
+      "language": "bash",
+      "code_text": "echo \"batch-249\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0250",
+      "category": "clean",
+      "kind": "gen_0250",
+      "language": "bash",
+      "code_text": "echo \"batch-250\"\nexit 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0251",
+      "category": "clean",
+      "kind": "gen_0251",
+      "language": "yaml",
+      "code_text": "version: \"251.57\"\nsettings:\n  retries: 2\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0252",
+      "category": "clean",
+      "kind": "gen_0252",
+      "language": "yaml",
+      "code_text": "version: \"252.58\"\nsettings:\n  retries: 3\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0253",
+      "category": "clean",
+      "kind": "gen_0253",
+      "language": "yaml",
+      "code_text": "version: \"253.59\"\nsettings:\n  retries: 4\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0254",
+      "category": "clean",
+      "kind": "gen_0254",
+      "language": "yaml",
+      "code_text": "version: \"254.60\"\nsettings:\n  retries: 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0255",
+      "category": "clean",
+      "kind": "gen_0255",
+      "language": "yaml",
+      "code_text": "version: \"255.61\"\nsettings:\n  retries: 1\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0256",
+      "category": "clean",
+      "kind": "gen_0256",
+      "language": "yaml",
+      "code_text": "version: \"256.62\"\nsettings:\n  retries: 2\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0257",
+      "category": "clean",
+      "kind": "gen_0257",
+      "language": "yaml",
+      "code_text": "version: \"257.63\"\nsettings:\n  retries: 3\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0258",
+      "category": "clean",
+      "kind": "gen_0258",
+      "language": "yaml",
+      "code_text": "version: \"258.64\"\nsettings:\n  retries: 4\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0259",
+      "category": "clean",
+      "kind": "gen_0259",
+      "language": "yaml",
+      "code_text": "version: \"259.65\"\nsettings:\n  retries: 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0260",
+      "category": "clean",
+      "kind": "gen_0260",
+      "language": "yaml",
+      "code_text": "version: \"260.66\"\nsettings:\n  retries: 1\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0261",
+      "category": "clean",
+      "kind": "gen_0261",
+      "language": "yaml",
+      "code_text": "version: \"261.67\"\nsettings:\n  retries: 2\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0262",
+      "category": "clean",
+      "kind": "gen_0262",
+      "language": "yaml",
+      "code_text": "version: \"262.68\"\nsettings:\n  retries: 3\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0263",
+      "category": "clean",
+      "kind": "gen_0263",
+      "language": "yaml",
+      "code_text": "version: \"263.69\"\nsettings:\n  retries: 4\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0264",
+      "category": "clean",
+      "kind": "gen_0264",
+      "language": "yaml",
+      "code_text": "version: \"264.70\"\nsettings:\n  retries: 0\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0265",
+      "category": "clean",
+      "kind": "gen_0265",
+      "language": "yaml",
+      "code_text": "version: \"265.71\"\nsettings:\n  retries: 1\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0266",
+      "category": "clean",
+      "kind": "gen_0266",
+      "language": "json",
+      "code_text": "{\"id\": 266, \"enabled\": true, \"limit\": 72}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0267",
+      "category": "clean",
+      "kind": "gen_0267",
+      "language": "json",
+      "code_text": "{\"id\": 267, \"enabled\": true, \"limit\": 73}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0268",
+      "category": "clean",
+      "kind": "gen_0268",
+      "language": "json",
+      "code_text": "{\"id\": 268, \"enabled\": true, \"limit\": 74}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0269",
+      "category": "clean",
+      "kind": "gen_0269",
+      "language": "json",
+      "code_text": "{\"id\": 269, \"enabled\": true, \"limit\": 75}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0270",
+      "category": "clean",
+      "kind": "gen_0270",
+      "language": "json",
+      "code_text": "{\"id\": 270, \"enabled\": true, \"limit\": 76}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0271",
+      "category": "clean",
+      "kind": "gen_0271",
+      "language": "json",
+      "code_text": "{\"id\": 271, \"enabled\": true, \"limit\": 77}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0272",
+      "category": "clean",
+      "kind": "gen_0272",
+      "language": "json",
+      "code_text": "{\"id\": 272, \"enabled\": true, \"limit\": 78}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0273",
+      "category": "clean",
+      "kind": "gen_0273",
+      "language": "json",
+      "code_text": "{\"id\": 273, \"enabled\": true, \"limit\": 79}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0274",
+      "category": "clean",
+      "kind": "gen_0274",
+      "language": "json",
+      "code_text": "{\"id\": 274, \"enabled\": true, \"limit\": 80}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0275",
+      "category": "clean",
+      "kind": "gen_0275",
+      "language": "json",
+      "code_text": "{\"id\": 275, \"enabled\": true, \"limit\": 81}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0276",
+      "category": "clean",
+      "kind": "gen_0276",
+      "language": "json",
+      "code_text": "{\"id\": 276, \"enabled\": true, \"limit\": 82}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0277",
+      "category": "clean",
+      "kind": "gen_0277",
+      "language": "json",
+      "code_text": "{\"id\": 277, \"enabled\": true, \"limit\": 83}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0278",
+      "category": "clean",
+      "kind": "gen_0278",
+      "language": "json",
+      "code_text": "{\"id\": 278, \"enabled\": true, \"limit\": 84}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0279",
+      "category": "clean",
+      "kind": "gen_0279",
+      "language": "json",
+      "code_text": "{\"id\": 279, \"enabled\": true, \"limit\": 85}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0280",
+      "category": "clean",
+      "kind": "gen_0280",
+      "language": "json",
+      "code_text": "{\"id\": 280, \"enabled\": true, \"limit\": 86}\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0281",
+      "category": "clean",
+      "kind": "gen_0281",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_281 WHERE active = 1 ORDER BY id LIMIT 38;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0282",
+      "category": "clean",
+      "kind": "gen_0282",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_282 WHERE active = 1 ORDER BY id LIMIT 39;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0283",
+      "category": "clean",
+      "kind": "gen_0283",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_283 WHERE active = 1 ORDER BY id LIMIT 40;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0284",
+      "category": "clean",
+      "kind": "gen_0284",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_284 WHERE active = 1 ORDER BY id LIMIT 41;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0285",
+      "category": "clean",
+      "kind": "gen_0285",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_285 WHERE active = 1 ORDER BY id LIMIT 42;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0286",
+      "category": "clean",
+      "kind": "gen_0286",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_286 WHERE active = 1 ORDER BY id LIMIT 43;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0287",
+      "category": "clean",
+      "kind": "gen_0287",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_287 WHERE active = 1 ORDER BY id LIMIT 44;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0288",
+      "category": "clean",
+      "kind": "gen_0288",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_288 WHERE active = 1 ORDER BY id LIMIT 45;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0289",
+      "category": "clean",
+      "kind": "gen_0289",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_289 WHERE active = 1 ORDER BY id LIMIT 46;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0290",
+      "category": "clean",
+      "kind": "gen_0290",
+      "language": "sql",
+      "code_text": "SELECT id FROM metrics_290 WHERE active = 1 ORDER BY id LIMIT 47;\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0291",
+      "category": "clean",
+      "kind": "gen_0291",
+      "language": "graphql",
+      "code_text": "query Q291 { health status }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0292",
+      "category": "clean",
+      "kind": "gen_0292",
+      "language": "graphql",
+      "code_text": "query Q292 { health status }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0293",
+      "category": "clean",
+      "kind": "gen_0293",
+      "language": "graphql",
+      "code_text": "query Q293 { health status }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0294",
+      "category": "clean",
+      "kind": "gen_0294",
+      "language": "graphql",
+      "code_text": "query Q294 { health status }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0295",
+      "category": "clean",
+      "kind": "gen_0295",
+      "language": "graphql",
+      "code_text": "query Q295 { health status }\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0296",
+      "category": "clean",
+      "kind": "gen_0296",
+      "language": "markdown",
+      "code_text": "## Section 296\n\nSee unit tests.\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0297",
+      "category": "clean",
+      "kind": "gen_0297",
+      "language": "markdown",
+      "code_text": "## Section 297\n\nSee unit tests.\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0298",
+      "category": "clean",
+      "kind": "gen_0298",
+      "language": "markdown",
+      "code_text": "## Section 298\n\nSee unit tests.\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0299",
+      "category": "clean",
+      "kind": "gen_0299",
+      "language": "markdown",
+      "code_text": "## Section 299\n\nSee unit tests.\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    },
+    {
+      "id": "CLN-0300",
+      "category": "clean",
+      "kind": "gen_0300",
+      "language": "markdown",
+      "code_text": "## Section 300\n\nSee unit tests.\n",
+      "has_sensitive_data": false,
+      "sensitive_findings": []
+    }
+  ]
+}

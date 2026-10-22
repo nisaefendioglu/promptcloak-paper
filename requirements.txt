@@ -1,0 +1,2 @@
+# Arayüz penceresi
+pywebview>=5.0

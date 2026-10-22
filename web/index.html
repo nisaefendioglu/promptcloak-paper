@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PromptCloak</title>
+  <link rel="icon" href="/assets/icon_32.png" />
+  <style>
+    :root {
+      --bg: #0f1110;
+      --panel: #161918;
+      --elev: #1c211f;
+      --line: #2a322f;
+      --text: #e8ece9;
+      --muted: #8b9891;
+      --accent: #3dcf9a;
+      --accent-dim: #1a3d32;
+      --danger: #f0a0a0;
+      --warn: #e6c07b;
+      --shadow: 0 18px 50px rgba(0,0,0,.4);
+      --scrim: rgba(0,0,0,.42);
+    }
+    html[data-theme="light"] {
+      --bg: #f2f4f2;
+      --panel: #ffffff;
+      --elev: #eef1ee;
+      --line: #d4dcd6;
+      --text: #17201c;
+      --muted: #5a6861;
+      --accent: #178a62;
+      --accent-dim: #d7f0e4;
+      --danger: #b42318;
+      --warn: #8a6412;
+      --shadow: 0 18px 50px rgba(22, 32, 26, .14);
+      --scrim: rgba(20, 28, 24, .28);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; user-select: text; -webkit-user-select: text; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+    }
+    aside {
+      width: 272px; flex-shrink: 0;
+      border-right: 1px solid var(--line);
+      background: var(--panel);
+      display: flex; flex-direction: column;
+      padding: 16px 14px;
+      min-height: 0;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 650; letter-spacing: -0.03em; font-size: 15px; }
+    .brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .tag { margin-top: 8px; font-size: 12px; color: var(--muted); line-height: 1.45; }
+    .chip {
+      margin-top: 14px; font-size: 11px; color: var(--accent);
+      background: var(--accent-dim); border: 1px solid #2a5c4c;
+      display: inline-block; padding: 4px 8px; border-radius: 999px;
+    }
+    .nav { margin-top: 18px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
+    .nav button {
+      text-align: left; background: transparent; color: var(--muted);
+      border: 1px solid transparent; border-radius: 10px;
+      padding: 9px 10px; font-size: 13px; cursor: pointer;
+      display: flex; align-items: center; gap: 10px; font-weight: 550;
+    }
+    .nav button .nav-ico {
+      width: 18px; height: 18px; display: grid; place-items: center;
+      opacity: .88; flex-shrink: 0; color: inherit;
+    }
+    .nav button .nav-ico svg { width: 18px; height: 18px; display: block; }
+    .nav button.on .nav-ico { opacity: 1; color: var(--accent); }
+    .nav button.on { background: var(--elev); color: var(--text); border-color: var(--line); }
+    #nav-mask .ni-mask-bar {
+      opacity: 0; stroke-dasharray: 22; stroke-dashoffset: 22;
+    }
+    #nav-mask.on .ni-mask-bar { opacity: 1; stroke-dashoffset: 0; }
+    #nav-mask.on .ni-mask-pupil { opacity: 0.2; }
+    .side-foot {
+      margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .side-foot button {
+      width: 100%; text-align: left; background: transparent; color: var(--muted);
+      border: 1px solid transparent; border-radius: 10px;
+      padding: 9px 10px; font-size: 13px; cursor: pointer;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .side-foot button svg { width: 16px; height: 16px; flex-shrink: 0; opacity: .85; }
+    .side-foot button.on { background: var(--elev); color: var(--text); border-color: var(--line); }
+    .scrim { display: none; position: fixed; inset: 0; z-index: 50; background: var(--scrim); }
+    .scrim.on { display: block; }
+    .sheet {
+      position: fixed; z-index: 51; width: 248px;
+      background: var(--panel); border: 1px solid var(--line);
+      border-radius: 14px; padding: 12px 12px 8px;
+      box-shadow: var(--shadow);
+      opacity: 0; pointer-events: none;
+      transform: translateY(6px);
+    }
+    .sheet.on { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .sheet h2 { margin: 0 0 12px; font-size: 15px; font-weight: 650; }
+    .sheet-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 8px 2px;
+    }
+    .sheet-row span { font-size: 13px; color: var(--muted); }
+    .seg { display: flex; gap: 4px; background: var(--elev); border: 1px solid var(--line); border-radius: 9px; padding: 3px; }
+    .seg button {
+      background: transparent; color: var(--muted); border: 0; border-radius: 7px;
+      padding: 5px 10px; font-size: 12px; cursor: pointer; font-weight: 600;
+    }
+    .seg button.on { background: var(--panel); color: var(--text); }
+    main { flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; }
+    header {
+      height: 52px; flex-shrink: 0; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; font-size: 13px; color: var(--muted);
+    }
+    header #hdr-title { font-size: 14px; font-weight: 600; color: var(--text); }
+    header .hdr-meta { display: flex; align-items: center; gap: 12px; }
+    .view { flex: 1; display: flex; flex-direction: column; min-height: 0; width: 100%; }
+    .studio { flex: 1; display: flex; flex-direction: column; min-height: 0; padding: 16px 18px 18px; gap: 10px; }
+    .studio-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    button.primary {
+      background: var(--accent); color: #06241a;
+      border: 0; border-radius: 10px; padding: 8px 14px; font-weight: 650;
+      cursor: pointer; font-size: 13px;
+    }
+    button.ghost {
+      background: transparent; color: var(--muted); border: 1px solid var(--line);
+      border-radius: 8px; padding: 6px 10px; font-size: 12px; cursor: pointer;
+    }
+    button.dark {
+      background: #0c1613; color: var(--text); border: 1px solid var(--line);
+      border-radius: 10px; padding: 8px 14px; font-size: 13px; cursor: pointer; font-weight: 600;
+    }
+    html[data-theme="light"] button.dark { background: var(--panel); }
+    .custom-panel {
+      flex-shrink: 0;
+      background: var(--elev);
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .custom-panel h2 { margin: 0 0 6px; font-size: 14px; font-weight: 650; }
+    .custom-hint { font-size: 12px; color: var(--muted); margin: 0 0 10px; line-height: 1.45; }
+    .custom-row { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; align-items: center; }
+    .custom-row input {
+      flex: 1; min-width: 120px; background: var(--panel); border: 1px solid var(--line);
+      color: var(--text); border-radius: 8px; padding: 7px 9px; font-size: 12px;
+    }
+    .custom-row input.pattern { flex: 2; min-width: 200px; font-family: ui-monospace, monospace; }
+    .custom-row button {
+      background: transparent; border: 1px solid var(--line); color: var(--muted);
+      border-radius: 8px; padding: 6px 10px; font-size: 12px; cursor: pointer;
+    }
+    .custom-actions { display: flex; gap: 8px; margin-top: 4px; }
+    .panes { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; min-height: 0; }
+    .pane {
+      display: flex; flex-direction: column; min-height: 0;
+      background: var(--elev); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    }
+    .pane h3 {
+      margin: 0; padding: 10px 12px; font-size: 12px; font-weight: 600;
+      color: var(--muted); border-bottom: 1px solid var(--line);
+    }
+    textarea.code {
+      margin: 0; min-height: 0; height: 100%; resize: none; border: 0; outline: none;
+      background: transparent; color: var(--text); padding: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12.5px; line-height: 1.5; white-space: pre-wrap;
+    }
+    .findings {
+      display: none; flex-shrink: 0; max-height: 160px; overflow: auto;
+      background: var(--elev); border: 1px solid var(--line); border-radius: 12px;
+    }
+    .findings.on { display: block; }
+    .findings table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .findings th, .findings td {
+      text-align: left; padding: 7px 12px; border-bottom: 1px solid var(--line);
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+    }
+    .findings th { color: var(--muted); font-weight: 600; font-family: inherit; }
+    .findings td.tok { color: var(--accent); }
+    .toast {
+      position: fixed; right: 22px; bottom: 22px; z-index: 40;
+      background: var(--elev); border: 1px solid var(--line);
+      color: var(--text); border-radius: 12px; padding: 10px 14px;
+      font-size: 13px; box-shadow: var(--shadow);
+      opacity: 0; pointer-events: none; transform: translateY(8px);
+      transition: opacity .2s, transform .2s; max-width: 320px;
+    }
+    .toast.show { opacity: 1; transform: none; }
+    .fc-scrim {
+      display: none; position: fixed; inset: 0; z-index: 30;
+      background: var(--scrim); align-items: center; justify-content: center; padding: 24px;
+    }
+    .fc-scrim.on { display: flex; }
+    .fc-dialog {
+      width: min(440px, 100%); background: var(--panel); border: 1px solid var(--line);
+      border-radius: 16px; padding: 22px; box-shadow: var(--shadow); text-align: center;
+    }
+    .fc-dialog h2 { margin: 0 0 10px; font-size: 17px; font-weight: 650; color: var(--danger); }
+    .fc-dialog p { margin: 0 0 14px; font-size: 13.5px; line-height: 1.5; }
+    .fc-dialog ul {
+      margin: 0 0 18px; padding: 0; list-style: none; text-align: left;
+      font-size: 12.5px; color: var(--muted); background: var(--elev);
+      border: 1px solid var(--line); border-radius: 10px;
+    }
+    .fc-dialog li { padding: 8px 12px; border-bottom: 1px solid var(--line); }
+    .fc-dialog li:last-child { border-bottom: 0; }
+    @media (max-width: 860px) { .panes { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="brand">
+      <img src="/assets/icon_64.png" alt="PromptCloak" />
+      PromptCloak
+    </div>
+    <div class="tag" id="tag"></div>
+    <div class="chip" id="chip"></div>
+    <nav class="nav">
+      <button type="button" class="on" id="nav-mask">
+        <span class="nav-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <g class="ni-mask-eye">
+              <path d="M2.8 12.5C5.2 8.4 8.4 6.5 12 6.5s6.8 1.9 9.2 6"/>
+              <path d="M2.8 12.5C5.2 16.6 8.4 18.5 12 18.5s6.8-1.9 9.2-6"/>
+            </g>
+            <circle class="ni-mask-pupil" cx="12" cy="12.5" r="1.75" fill="currentColor" stroke="none"/>
+            <path class="ni-mask-bar" d="M5.5 5.5 18.5 18.5" stroke-width="1.85"/>
+          </svg>
+        </span>
+        <span id="nav-mask-label"></span>
+      </button>
+    </nav>
+    <div class="side-foot">
+      <button type="button" id="btn-settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
+        </svg>
+        <span id="nav-settings-label"></span>
+      </button>
+    </div>
+  </aside>
+  <main>
+    <header>
+      <span id="hdr-title"></span>
+      <div class="hdr-meta"><span id="status"></span></div>
+    </header>
+    <section class="view" id="view-mask">
+      <div class="studio">
+        <div class="studio-bar">
+          <button class="primary" id="btn-mask" type="button"></button>
+          <button class="dark" id="btn-unmask" type="button"></button>
+          <button class="ghost" id="sample-mask" type="button"></button>
+          <button class="ghost" id="sample-mask-split" type="button"></button>
+          <button class="ghost" id="btn-clear" type="button"></button>
+        </div>
+        <div class="custom-panel">
+          <h2 id="custom-title"></h2>
+          <p class="custom-hint" id="custom-hint"></p>
+          <div class="custom-rules-list"></div>
+          <div class="custom-actions">
+            <button type="button" class="ghost custom-add" id="custom-add"></button>
+          </div>
+        </div>
+        <div class="panes">
+          <div class="pane">
+            <h3 id="pane-in"></h3>
+            <textarea class="code" id="mask-in"></textarea>
+          </div>
+          <div class="pane">
+            <h3 id="pane-out"></h3>
+            <textarea class="code" id="mask-out"></textarea>
+          </div>
+        </div>
+        <div class="findings">
+          <table>
+            <thead>
+              <tr><th id="col-type"></th><th id="col-value"></th><th id="col-token"></th></tr>
+            </thead>
+            <tbody id="findings-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="scrim" id="scrim"></div>
+  <div class="sheet" id="sheet">
+    <h2 id="sheet-title"></h2>
+    <div class="sheet-row">
+      <span id="lbl-appearance"></span>
+      <div class="seg">
+        <button type="button" id="theme-dark"></button>
+        <button type="button" id="theme-light"></button>
+      </div>
+    </div>
+    <div class="sheet-row">
+      <span id="lbl-language"></span>
+      <div class="seg">
+        <button type="button" id="lang-en">EN</button>
+        <button type="button" id="lang-tr">TR</button>
+      </div>
+    </div>
+  </div>
+  <div class="fc-scrim" id="fc-scrim">
+    <div class="fc-dialog">
+      <h2 id="fc-title"></h2>
+      <p id="fc-msg"></p>
+      <ul id="fc-list"></ul>
+      <button class="primary" type="button" id="fc-ok"></button>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script>
+const SAMPLE_CODE = `import requests
+
+OPENAI_KEY = "sk-proj-5Gz8N2TY6nLDDnziKVMF0280"
+DB_URL = "postgres://app280:DbRoot!280!@db-internal-280.corp.local:5432/orders"
+
+def fetch_order(order_id):
+    q = "SELECT * FROM orders WHERE id = " + str(order_id)
+    r = requests.get("https://intranet-api-280.corp.local/v1/orders", params={"q": q, "key": OPENAI_KEY})
+    data = r.json()
+    return data["result"]
+`;
+
+const SAMPLE_SPLIT_CODE = `API_KEY = "sk-proj-" + "abcdefghijklmnopqrst1234567890AB"
+
+def headers():
+    return {"Authorization": f"Bearer {API_KEY}"}
+`;
+
+const SPLIT_CUSTOM_RULE = {
+  name: "split_sk",
+  pattern: '"sk-proj-"\\s*\\+\\s*"[A-Za-z0-9_-]+"',
+};
+
+const I18N = {
+  tr: {
+    tag: "Sırlar bu makinede kalır. Modele yalnızca maske gider; yanıt burada geri açılır.",
+    chip: "Yerel · Offline",
+    nav_mask: "Maskele",
+    title: "Maskele",
+    status: "Hazır",
+    btn_mask: "Maskele",
+    btn_unmask: "Tersine Maskele",
+    sample_builtin: "Yerleşik örnek",
+    sample_split: "Parçalı anahtar örneği",
+    sample_split_toast: "split_sk özel kuralı eklendi.",
+    btn_clear: "Temizle",
+    pane_in: "Girdi — orijinal kod",
+    pane_out: "Çıktı — maskeli metin / yanıt",
+    mask_in_ph: "Maskelenecek kodu yapıştırın.",
+    mask_out_ph: "Maskeleyin veya model yanıtını yapıştırıp tersine maskeleyin…",
+    custom_title: "Özel kurallar (regex)",
+    custom_hint: "Yerleşik kuralların kaçırdığı biçimler için kendi deseninizi ekleyin.",
+    custom_add: "Kural ekle",
+    custom_remove: "Sil",
+    custom_name_ph: "İsim (örn. split_sk)",
+    custom_pattern_ph: "Regex (örn. \"sk-proj-\"\\s*\\+\\s*\"[A-Za-z0-9_-]+\")",
+    col_type: "Tür",
+    col_value: "Bulunan değer",
+    col_token: "Maske",
+    masked: "Maskelendi. Metni kendi modelinize yapıştırabilirsiniz.",
+    unmasked: "Tersine maskelendi.",
+    cleared: "Temizlendi",
+    empty: "Metin boş",
+    error: "Hata",
+    fc_title: "Gönderim kapalı",
+    fc_msg: "Maskelemeden sonra düz sır kaldı. Bu metni modele taşımayın.",
+    fc_ok: "Tamam",
+    nav_settings: "Ayarlar",
+    sheet_title: "Ayarlar",
+    appearance: "Görünüm",
+    language: "Dil",
+    theme_dark: "Koyu",
+    theme_light: "Açık",
+  },
+  en: {
+    tag: "Secrets stay on this machine. The model only sees masks; replies are reverse-masked here.",
+    chip: "Local · Offline",
+    nav_mask: "Mask",
+    title: "Mask",
+    status: "Ready",
+    btn_mask: "Mask",
+    btn_unmask: "Unmask",
+    sample_builtin: "Built-in sample",
+    sample_split: "Split key sample",
+    sample_split_toast: "Added the split_sk custom rule.",
+    btn_clear: "Clear",
+    pane_in: "Input — original code",
+    pane_out: "Output — masked / restored",
+    mask_in_ph: "Paste code to mask.",
+    mask_out_ph: "Mask, or paste a model reply and unmask…",
+    custom_title: "Custom rules (regex)",
+    custom_hint: "Add your own pattern for formats the built-in rules miss.",
+    custom_add: "Add rule",
+    custom_remove: "Remove",
+    custom_name_ph: "Name (e.g. split_sk)",
+    custom_pattern_ph: "Regex (e.g. \"sk-proj-\"\\s*\\+\\s*\"[A-Za-z0-9_-]+\")",
+    col_type: "Type",
+    col_value: "Value",
+    col_token: "Mask",
+    masked: "Masked. You may paste this into your own model.",
+    unmasked: "Unmasked.",
+    cleared: "Cleared",
+    empty: "Text is empty",
+    error: "Error",
+    fc_title: "Send blocked",
+    fc_msg: "A plaintext secret remains after masking. Do not send this text to a model.",
+    fc_ok: "OK",
+    nav_settings: "Settings",
+    sheet_title: "Settings",
+    appearance: "Appearance",
+    language: "Language",
+    theme_dark: "Dark",
+    theme_light: "Light",
+  },
+};
+
+const CUSTOM_STORAGE = "promptcloak-paper.custom_rules_v1";
+let lang = localStorage.getItem("promptcloak-paper.lang") === "tr" ? "tr" : "en";
+let theme = localStorage.getItem("promptcloak-paper.theme") === "light" ? "light" : "dark";
+let maskSession = null;
+
+function t(key) { return I18N[lang][key] || key; }
+
+function toast(msg) {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  setTimeout(() => el.classList.remove("show"), 2200);
+}
+
+function applyTheme() {
+  document.documentElement.setAttribute("data-theme", theme);
+  document.getElementById("theme-dark").classList.toggle("on", theme === "dark");
+  document.getElementById("theme-light").classList.toggle("on", theme === "light");
+}
+
+function loadCustomRules() {
+  try {
+    const arr = JSON.parse(localStorage.getItem(CUSTOM_STORAGE) || "[]");
+    return Array.isArray(arr) ? arr.filter((x) => x && x.name) : [];
+  } catch (e) { return []; }
+}
+function saveCustomRules(rules) {
+  localStorage.setItem(CUSTOM_STORAGE, JSON.stringify(rules));
+}
+function customRulesPayload() {
+  return loadCustomRules().filter((r) => r.pattern).map((r) => ({ name: r.name, pattern: r.pattern }));
+}
+function renderCustomRules() {
+  const list = document.querySelector(".custom-rules-list");
+  const rules = loadCustomRules();
+  list.innerHTML = "";
+  rules.forEach((r, idx) => {
+    const row = document.createElement("div");
+    row.className = "custom-row";
+    row.innerHTML = `
+      <input type="text" value="${String(r.name).replace(/"/g, "&quot;")}" data-idx="${idx}" data-field="name" placeholder="${t("custom_name_ph")}" />
+      <input type="text" class="pattern" value="${String(r.pattern || "").replace(/"/g, "&quot;")}" data-idx="${idx}" data-field="pattern" placeholder="${t("custom_pattern_ph")}" />
+      <button type="button" data-remove="${idx}">${t("custom_remove")}</button>`;
+    list.appendChild(row);
+  });
+  list.querySelectorAll("input").forEach((inp) => {
+    inp.oninput = () => {
+      const next = loadCustomRules();
+      const i = Number(inp.dataset.idx);
+      if (next[i]) { next[i][inp.dataset.field] = inp.value; saveCustomRules(next); }
+    };
+  });
+  list.querySelectorAll("[data-remove]").forEach((btn) => {
+    btn.onclick = () => {
+      const next = loadCustomRules();
+      next.splice(Number(btn.dataset.remove), 1);
+      saveCustomRules(next);
+      renderCustomRules();
+    };
+  });
+}
+
+function applyI18n() {
+  document.documentElement.lang = lang;
+  document.getElementById("tag").textContent = t("tag");
+  document.getElementById("chip").textContent = t("chip");
+  document.getElementById("nav-mask-label").textContent = t("nav_mask");
+  document.getElementById("hdr-title").textContent = t("title");
+  document.getElementById("status").textContent = t("status");
+  document.getElementById("btn-mask").textContent = t("btn_mask");
+  document.getElementById("btn-unmask").textContent = t("btn_unmask");
+  document.getElementById("sample-mask").textContent = t("sample_builtin");
+  document.getElementById("sample-mask-split").textContent = t("sample_split");
+  document.getElementById("btn-clear").textContent = t("btn_clear");
+  document.getElementById("pane-in").textContent = t("pane_in");
+  document.getElementById("pane-out").textContent = t("pane_out");
+  document.getElementById("mask-in").placeholder = t("mask_in_ph");
+  document.getElementById("mask-out").placeholder = t("mask_out_ph");
+  document.getElementById("custom-title").textContent = t("custom_title");
+  document.getElementById("custom-hint").textContent = t("custom_hint");
+  document.getElementById("custom-add").textContent = t("custom_add");
+  document.getElementById("col-type").textContent = t("col_type");
+  document.getElementById("col-value").textContent = t("col_value");
+  document.getElementById("col-token").textContent = t("col_token");
+  document.getElementById("fc-title").textContent = t("fc_title");
+  document.getElementById("fc-msg").textContent = t("fc_msg");
+  document.getElementById("fc-ok").textContent = t("fc_ok");
+  document.getElementById("nav-settings-label").textContent = t("nav_settings");
+  document.getElementById("sheet-title").textContent = t("sheet_title");
+  document.getElementById("lbl-appearance").textContent = t("appearance");
+  document.getElementById("lbl-language").textContent = t("language");
+  document.getElementById("theme-dark").textContent = t("theme_dark");
+  document.getElementById("theme-light").textContent = t("theme_light");
+  document.getElementById("lang-en").classList.toggle("on", lang === "en");
+  document.getElementById("lang-tr").classList.toggle("on", lang === "tr");
+  applyTheme();
+  renderCustomRules();
+}
+
+function showFindings(rows) {
+  const wrap = document.querySelector(".findings");
+  const body = document.getElementById("findings-body");
+  body.innerHTML = "";
+  const list = rows || [];
+  list.forEach((f) => {
+    const tr = document.createElement("tr");
+    const typ = lang === "tr" ? (f.type_tr || f.type) : (f.type_en || f.type);
+    const val = f.preview || "";
+    tr.innerHTML = `<td>${typ}</td><td>${val}</td><td class="tok">${f.token || ""}</td>`;
+    body.appendChild(tr);
+  });
+  wrap.classList.toggle("on", list.length > 0);
+}
+
+function showFailClosed(rows) {
+  const ul = document.getElementById("fc-list");
+  ul.innerHTML = "";
+  (rows || []).forEach((x) => {
+    const li = document.createElement("li");
+    li.textContent = (x.type_tr || x.type || "") + (x.preview ? " · " + x.preview : "");
+    ul.appendChild(li);
+  });
+  document.getElementById("fc-scrim").classList.add("on");
+}
+
+document.getElementById("custom-add").onclick = () => {
+  const rules = loadCustomRules();
+  rules.push({ name: `rule_${rules.length + 1}`, pattern: "" });
+  saveCustomRules(rules);
+  renderCustomRules();
+};
+function placeSheet() {
+  const btn = document.getElementById("btn-settings");
+  const sheet = document.getElementById("sheet");
+  const r = btn.getBoundingClientRect();
+  sheet.style.left = Math.max(12, r.left) + "px";
+  sheet.style.bottom = (window.innerHeight - r.top + 8) + "px";
+}
+function openSheet(on) {
+  document.getElementById("sheet").classList.toggle("on", on);
+  document.getElementById("scrim").classList.toggle("on", on);
+  document.getElementById("btn-settings").classList.toggle("on", on);
+  if (on) placeSheet();
+}
+document.getElementById("btn-settings").onclick = () => {
+  openSheet(!document.getElementById("sheet").classList.contains("on"));
+};
+document.getElementById("scrim").onclick = () => openSheet(false);
+document.getElementById("lang-tr").onclick = () => {
+  lang = "tr";
+  localStorage.setItem("promptcloak-paper.lang", lang);
+  applyI18n();
+};
+document.getElementById("lang-en").onclick = () => {
+  lang = "en";
+  localStorage.setItem("promptcloak-paper.lang", lang);
+  applyI18n();
+};
+document.getElementById("theme-dark").onclick = () => {
+  theme = "dark";
+  localStorage.setItem("promptcloak-paper.theme", theme);
+  applyTheme();
+};
+document.getElementById("theme-light").onclick = () => {
+  theme = "light";
+  localStorage.setItem("promptcloak-paper.theme", theme);
+  applyTheme();
+};
+document.getElementById("sample-mask").onclick = () => {
+  document.getElementById("mask-in").value = SAMPLE_CODE;
+};
+document.getElementById("sample-mask-split").onclick = () => {
+  document.getElementById("mask-in").value = SAMPLE_SPLIT_CODE;
+  const rules = loadCustomRules();
+  if (!rules.some((r) => r.name === SPLIT_CUSTOM_RULE.name)) {
+    rules.push({ ...SPLIT_CUSTOM_RULE });
+    saveCustomRules(rules);
+    renderCustomRules();
+  }
+  toast(t("sample_split_toast"));
+};
+document.getElementById("btn-clear").onclick = () => {
+  maskSession = null;
+  document.getElementById("mask-in").value = "";
+  document.getElementById("mask-out").value = "";
+  showFindings([]);
+  document.getElementById("status").textContent = t("cleared");
+};
+document.getElementById("fc-ok").onclick = () => document.getElementById("fc-scrim").classList.remove("on");
+
+document.getElementById("btn-mask").onclick = async () => {
+  const message = document.getElementById("mask-in").value;
+  const r = await fetch("/api/mask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message, custom_rules: customRulesPayload() }),
+  });
+  const d = await r.json();
+  if (!r.ok) {
+    document.getElementById("status").textContent = d.error || t("error");
+    return;
+  }
+  maskSession = d.session_id;
+  document.getElementById("mask-out").value = d.masked;
+  showFindings(d.findings || []);
+  document.getElementById("status").textContent = t("masked");
+  if (d.outbound_safe === false) showFailClosed(d.residual_secrets || d.findings || []);
+};
+
+document.getElementById("btn-unmask").onclick = async () => {
+  const text = document.getElementById("mask-out").value;
+  const r = await fetch("/api/unmask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ session_id: maskSession, text }),
+  });
+  const d = await r.json();
+  if (!r.ok) {
+    document.getElementById("status").textContent = d.error || t("error");
+    return;
+  }
+  document.getElementById("mask-out").value = d.restored;
+  document.getElementById("status").textContent = t("unmasked");
+};
+
+applyI18n();
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "dataset": "split_pattern_custom_n300",
+  "n_records": 300,
+  "builtin_only": {
+    "n_contiguous_gt": 117,
+    "leak_samples": 17,
+    "leak_rate": 0.1453,
+    "roundtrip_ok": 117,
+    "roundtrip_rate": 1.0,
+    "leak_by_category": {
+      "comment_secret": 17
+    }
+  },
+  "with_recommended_custom_rules": {
+    "n_contiguous_gt": 117,
+    "leak_samples": 0,
+    "leak_rate": 0.0,
+    "roundtrip_ok": 117,
+    "roundtrip_rate": 1.0,
+    "leak_by_category": {}
+  }
+}

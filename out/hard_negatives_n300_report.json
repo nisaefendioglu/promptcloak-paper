@@ -1,0 +1,149 @@
+{
+  "n": 300,
+  "fp_samples": 20,
+  "fp_rate": 0.0667,
+  "clean_samples": 280,
+  "fp_on_expect_fp_rows": 20,
+  "fp_on_other_rows": 0,
+  "fp_by_kind": {
+    "docs_literal": 20
+  },
+  "findings_by_type": {
+    "api_key": 12,
+    "password_secret": 8
+  },
+  "examples": [
+    {
+      "id": "HNEG-0281",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "api_key"
+      ],
+      "values": [
+        "YOUR_API_KEY"
+      ]
+    },
+    {
+      "id": "HNEG-0282",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "password_secret"
+      ],
+      "values": [
+        "changeme"
+      ]
+    },
+    {
+      "id": "HNEG-0283",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "api_key"
+      ],
+      "values": [
+        "AKIAIOSFODNN7EXAMPLE"
+      ]
+    },
+    {
+      "id": "HNEG-0284",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "api_key"
+      ],
+      "values": [
+        "xxxxxxxxxxxxxxxx"
+      ]
+    },
+    {
+      "id": "HNEG-0285",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "password_secret"
+      ],
+      "values": [
+        "TODOSECRET"
+      ]
+    },
+    {
+      "id": "HNEG-0286",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "api_key"
+      ],
+      "values": [
+        "YOUR_API_KEY"
+      ]
+    },
+    {
+      "id": "HNEG-0287",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "password_secret"
+      ],
+      "values": [
+        "changeme"
+      ]
+    },
+    {
+      "id": "HNEG-0288",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "api_key"
+      ],
+      "values": [
+        "AKIAIOSFODNN7EXAMPLE"
+      ]
+    },
+    {
+      "id": "HNEG-0289",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "api_key"
+      ],
+      "values": [
+        "xxxxxxxxxxxxxxxx"
+      ]
+    },
+    {
+      "id": "HNEG-0290",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "password_secret"
+      ],
+      "values": [
+        "TODOSECRET"
+      ]
+    },
+    {
+      "id": "HNEG-0291",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "api_key"
+      ],
+      "values": [
+        "YOUR_API_KEY"
+      ]
+    },
+    {
+      "id": "HNEG-0292",
+      "kind": "docs_literal",
+      "expect_fp": true,
+      "types": [
+        "password_secret"
+      ],
+      "values": [
+        "changeme"
+      ]
+    }
+  ]
+}

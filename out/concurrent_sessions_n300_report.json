@@ -1,0 +1,9 @@
+{
+  "n_pairs": 300,
+  "workers": 2,
+  "mapping_mix_count": 0,
+  "tag_collision_count": 0,
+  "roundtrip_fail_count": 0,
+  "isolated": true,
+  "note_tr": "Her oturum ayrı MaskingEngine (ayrı _tag). İki iş parçacığı aynı anda maskeler. Karışma: diğer oturumun simgesi veya değeri bu tabloda görünür."
+}

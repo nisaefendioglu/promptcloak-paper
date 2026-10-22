@@ -1,0 +1,103 @@
+{
+  "n_samples": 300,
+  "protocol": "değer kümesi kesişimi; tarayıcıda alt dizgi eşleşmesi kabul",
+  "promptcloak": {
+    "tp": 446,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "gitleaks": {
+    "tp": 105,
+    "fp": 0,
+    "fn": 341,
+    "precision": 1.0,
+    "recall": 0.2354,
+    "f1": 0.3811
+  },
+  "trufflehog": {
+    "tp": 71,
+    "fp": 7,
+    "fn": 375,
+    "precision": 0.9103,
+    "recall": 0.1592,
+    "f1": 0.271
+  },
+  "gitleaks_version": "8.30.1 exit=1",
+  "trufflehog_version": "trufflehog 3.99.2",
+  "promptcloak_by_category": {
+    "multi_secret": {
+      "n": 35,
+      "findings_gt": 175,
+      "tp": 175,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "pii": {
+      "n": 45,
+      "findings_gt": 45,
+      "tp": 45,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "password_secret": {
+      "n": 50,
+      "findings_gt": 56,
+      "tp": 56,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "internal_url": {
+      "n": 40,
+      "findings_gt": 40,
+      "tp": 40,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "connection_string": {
+      "n": 45,
+      "findings_gt": 45,
+      "tp": 45,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "api_key": {
+      "n": 55,
+      "findings_gt": 55,
+      "tp": 55,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "private_key_keystore": {
+      "n": 30,
+      "findings_gt": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "note_tr": "Aynı 300 etiketli sentetik kayıt. Gitleaks/TruffleHog unmask yapmaz; karşılaştırma yalnızca tespit. PromptCloak P/R/F1 hizalı settedir."
+}

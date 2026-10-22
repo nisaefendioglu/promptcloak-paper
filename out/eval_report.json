@@ -1,0 +1,97 @@
+{
+  "n_samples": 300,
+  "protocol": "değer kümesi kesişimi (mikro); konum F1 iddia edilmez",
+  "finding_level": {
+    "tp": 446,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "by_category": {
+    "multi_secret": {
+      "n": 35,
+      "findings_gt": 175,
+      "tp": 175,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "pii": {
+      "n": 45,
+      "findings_gt": 45,
+      "tp": 45,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "password_secret": {
+      "n": 50,
+      "findings_gt": 56,
+      "tp": 56,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "internal_url": {
+      "n": 40,
+      "findings_gt": 40,
+      "tp": 40,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "connection_string": {
+      "n": 45,
+      "findings_gt": 45,
+      "tp": 45,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "api_key": {
+      "n": 55,
+      "findings_gt": 55,
+      "tp": 55,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "private_key_keystore": {
+      "n": 30,
+      "findings_gt": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "leakage": {
+    "samples_with_gt_still_in_masked": 0,
+    "leak_rate": 0.0
+  },
+  "unmask_roundtrip_exact": {
+    "ok": 300,
+    "rate": 1.0
+  },
+  "latency_ms": {
+    "avg": 0.098,
+    "p50": 0.066,
+    "p95": 0.247
+  }
+}

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# Sentetik sk_live_/AKIA dizgileri GitHub sır taramasını tetikler; HF'den indirilir.
+data/synthetic_sensitive_data_in_source_code_n300.json
+data/extensions/hard_negatives_n300.json
+data/extensions/split_pattern_custom_n300.json
+*.jsonl
+.env
+.env.*
