@@ -4,14 +4,10 @@
 
 <h2 id="tr">Türkçe</h2>
 
-Makaledeki yerel maskeleme / tersine maskeleme katmanını **hiçbir API anahtarı olmadan** deneyebilirsiniz.
-
 Makale: *Yapay Zekâ Destekli Kod Üretiminde Hassas Veri Sızıntısının Önlenmesi: Yerel Maskeleme ve Tersine Maskeleme Tabanlı Bir Güvenlik Katmanı* (Efendioğlu, Emekli). Sürüm `1.0.0-paper`.
 
 - Kod: https://github.com/nisaefendioglu/promptcloak-paper
 - Veri: https://huggingface.co/datasets/nisaefendioglu/synthetic-sensitive-data-in-source-code-n300 (DOI [10.57967/hf/9800](https://doi.org/10.57967/hf/9800))
-
-Makalede yeniden üretim kısa tutulur (Bölüm 2.1 / 2.6 ve Kaynakça): repo, HF adresi, `python3 desktop_app.py`, `python3 fetch_data.py && ./reproduce.sh`. Adım adım komutlar bu README’dedir.
 
 ## 1. İlk kurulum (bir kez)
 
@@ -97,10 +93,6 @@ brew install gitleaks trufflehog
 
 Makaledeki sürümler: Gitleaks **8.30.1**, TruffleHog **3.99.2**. Daha yeni sürüm sayıları biraz kayabilir.
 
-### Canlı GPT-4o / GPT-4o-mini yer tutucu sayıları
-
-Makalede raporlanır. Bu paket **API çağırmaz**; anahtar gerekmez.
-
 ### Sözde kod / algoritma
 
 `ALGORITHM.md`
@@ -134,14 +126,10 @@ Kod: Efendioğlu NN., Emekli HB. PromptCloak, 1.0.0-paper. https://github.com/ni
 
 [TR](#tr) · [EN](#en)
 
-You can try the paper’s local mask / unmask layer **without any API key**.
-
 Paper: *Preventing Sensitive Data Leakage in AI-Assisted Code Generation: A Security Layer Based on Local Masking and Reverse Masking* (Efendioğlu, Emekli). Version `1.0.0-paper`.
 
 - Code: https://github.com/nisaefendioglu/promptcloak-paper
 - Data: https://huggingface.co/datasets/nisaefendioglu/synthetic-sensitive-data-in-source-code-n300 (DOI [10.57967/hf/9800](https://doi.org/10.57967/hf/9800))
-
-The article keeps reproducibility short (§2.1 / 2.6 and the bibliography): repo, HF URL, `python3 desktop_app.py`, `python3 fetch_data.py && ./reproduce.sh`. Step-by-step commands live here.
 
 ## 1. One-time setup
 
@@ -226,10 +214,6 @@ brew install gitleaks trufflehog
 ```
 
 Paper versions: Gitleaks **8.30.1**, TruffleHog **3.99.2**. Newer releases may shift the scores slightly.
-
-### Live GPT-4o / GPT-4o-mini placeholder numbers
-
-Reported in the paper. This package **does not call an API**; no key is required.
 
 ### Pseudocode / algorithm
 
