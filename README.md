@@ -8,7 +8,10 @@ Makaledeki yerel maskeleme ve tersine maskeleme katmanının yeniden üretim pak
 
 Makale: *Yapay Zekâ Destekli Kod Üretiminde Hassas Veri Sızıntısının Önlenmesi: Yerel Maskeleme ve Tersine Maskeleme Tabanlı Bir Güvenlik Katmanı* (Efendioğlu, Emekli).
 
-Sürüm: `1.0.0-paper` · Python 3.11+ · Veri DOI: [10.57967/hf/9800](https://doi.org/10.57967/hf/9800)
+Sürüm: `1.0.0-paper` · Python 3.11+
+
+- Kod: https://github.com/nisaefendioglu/promptcloak-paper
+- Veri: https://huggingface.co/datasets/nisaefendioglu/synthetic-sensitive-data-in-source-code-n300 (DOI [10.57967/hf/9800](https://doi.org/10.57967/hf/9800))
 
 ## Bu pakette ne var
 
@@ -43,13 +46,24 @@ python3 desktop_app.py
 
 ## Veri
 
-Hizalı N=300, bölünmüş-sır ve tuzak JSON’ları GitHub’a konmaz (sentetik anahtar biçimi push korumasını tetikler). Hugging Face DOI 10.57967/hf/9800 paketinden bir kez indirin:
+Tüm makale kümeleri tek Hugging Face paketindedir (DOI 10.57967/hf/9800):
+
+https://huggingface.co/datasets/nisaefendioglu/synthetic-sensitive-data-in-source-code-n300
+
+| Küme | HF dosya / Viewer | Makale |
+|------|-------------------|--------|
+| Hizalı N=300 | `synthetic_sensitive_data_in_source_code_n300.json` · `sensitive_n300` | Tablo 5/12 |
+| Temiz N=300 | `extensions/clean_code_snippets_n300.json` · `clean_n300` | 0/300 FP |
+| Bölünmüş sır | `extensions/split_pattern_custom_n300.json` · `split_pattern_n300` | ~%14,5 sızıntı |
+| Tuzak / zor negatif | `extensions/hard_negatives_n300.json` · `hard_negatives_n300` | 20/300 FP |
+
+Sentetik anahtar biçimi GitHub push korumasını tetikler; JSON’lar bu repoda yoktur. Bir kez:
 
 ```bash
 python3 fetch_data.py
 ```
 
-Bu komut aynı HF paketinden N=300, split ve `hard_negatives_n300` dosyalarını `data/` altına alır. Tuzak seti yoksa `generate_hard_negatives_n300.py` yerelde üretir. Temiz küme (`data/extensions/clean_code_snippets_n300.json`) zaten repodadır.
+Bu komut yukarıdaki HF dosyalarını `data/` altına alır. Tuzak seti yoksa `generate_hard_negatives_n300.py` yerelde üretir. Temiz küme zaten repodadır.
 
 ## Deneyleri tekrarlama
 
@@ -111,7 +125,10 @@ Reproduction package for the article’s local mask / unmask layer.
 
 Paper: *Preventing Sensitive Data Leakage in AI-Assisted Code Generation: A Security Layer Based on Local Masking and Reverse Masking* (Efendioğlu, Emekli).
 
-Version: `1.0.0-paper` · Python 3.11+ · Data DOI: [10.57967/hf/9800](https://doi.org/10.57967/hf/9800)
+Version: `1.0.0-paper` · Python 3.11+
+
+- Code: https://github.com/nisaefendioglu/promptcloak-paper
+- Data: https://huggingface.co/datasets/nisaefendioglu/synthetic-sensitive-data-in-source-code-n300 (DOI [10.57967/hf/9800](https://doi.org/10.57967/hf/9800))
 
 ## What this package contains
 
@@ -146,13 +163,24 @@ Two `python3 desktop_app.py` processes are two sessions; mapping tables stay iso
 
 ## Data
 
-The aligned N=300, split-secret, and trap JSON files are not in Git (synthetic key shapes trip push protection). Download once from Hugging Face DOI 10.57967/hf/9800:
+All paper splits live in one Hugging Face dataset (DOI 10.57967/hf/9800):
+
+https://huggingface.co/datasets/nisaefendioglu/synthetic-sensitive-data-in-source-code-n300
+
+| Split | HF file / Viewer | Paper |
+|-------|------------------|--------|
+| Aligned N=300 | `synthetic_sensitive_data_in_source_code_n300.json` · `sensitive_n300` | Tables 5/12 |
+| Clean N=300 | `extensions/clean_code_snippets_n300.json` · `clean_n300` | 0/300 FP |
+| Split secret | `extensions/split_pattern_custom_n300.json` · `split_pattern_n300` | ~14.5% leak |
+| Hard negatives / traps | `extensions/hard_negatives_n300.json` · `hard_negatives_n300` | 20/300 FP |
+
+Synthetic key shapes are not stored in this Git repo. Download once:
 
 ```bash
 python3 fetch_data.py
 ```
 
-This fetches the N=300, split, and `hard_negatives_n300` files into `data/`. If the trap file is missing it is generated with `generate_hard_negatives_n300.py`. The clean set (`data/extensions/clean_code_snippets_n300.json`) is already in the repo.
+That command writes the HF files under `data/`. If the trap file is missing it is generated with `generate_hard_negatives_n300.py`. The clean set is already in the repo.
 
 ## Reproduce the experiments
 
