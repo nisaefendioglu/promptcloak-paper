@@ -64,7 +64,7 @@ def evaluate() -> dict:
     lat = sorted(latencies_ms)
     return {
         "n_samples": n,
-        "protocol": "değer kümesi kesişimi (mikro); konum F1 iddia edilmez",
+        "protocol": "değer kümesi kesişimi (mikro); konum F1 için evaluate_position_partial.py",
         "finding_level": {"tp": tp, "fp": fp, "fn": fn, **prf(tp, fp, fn)},
         "by_category": cats,
         "leakage": {"samples_with_gt_still_in_masked": leak, "leak_rate": round(leak / n, 4)},
