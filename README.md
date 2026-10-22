@@ -1,5 +1,9 @@
 # PromptCloak
 
+[TR](#tr) · [EN](#en)
+
+<h2 id="tr">Türkçe</h2>
+
 Makaledeki yerel maskeleme ve tersine maskeleme katmanının yeniden üretim paketi.
 
 Makale: *Yapay Zekâ Destekli Kod Üretiminde Hassas Veri Sızıntısının Önlenmesi: Yerel Maskeleme ve Tersine Maskeleme Tabanlı Bir Güvenlik Katmanı* (Efendioğlu, Emekli).
@@ -99,7 +103,9 @@ Kod: Efendioğlu NN., Emekli HB. PromptCloak, 1.0.0-paper. https://github.com/ni
 
 ---
 
-# English
+<h1 id="en">English</h1>
+
+[TR](#tr) · [EN](#en)
 
 Reproduction package for the article’s local mask / unmask layer.
 
