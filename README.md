@@ -79,6 +79,7 @@ Tuzak dosyası inmezse: `python3 generate_hard_negatives_n300.py`. Temiz küme z
 | Zor negatif / tuzak | `python3 evaluate_hard_negatives.py` | 20/300 FP (%6,7), hepsi `docs_literal` |
 | Bölünmüş sır sızıntısı | `python3 evaluate_split_custom.py` | yerleşik ~%14,5 |
 | Eşzamanlı iki oturum | `python3 evaluate_concurrent_sessions.py` | karışma 0 |
+| Çok turlu yerel (300×3) | `python3 evaluate_multi_turn.py` | 900 turda sızıntı 0; aynı simge |
 | Konum F1 ve kısmi sızıntı (Tablo 13) | `python3 evaluate_position_partial.py` | konum F1≈0,99; kısmi 0 |
 | Uzunluk × yoğunluk gecikme (Tablo 14) | `python3 evaluate_latency_sweep.py` | p50 ms; 32 bin karakterde ~13–15 ms |
 | Naif regex + Gitleaks + TruffleHog (Tablo 11) | `python3 compare_scanners_n300.py` | naif F1≈0,62; Gitleaks ≈0,38; TruffleHog ≈0,27 |
@@ -201,6 +202,7 @@ Download once with `python3 fetch_data.py`.
 | Hard negatives / traps | `python3 evaluate_hard_negatives.py` | 20/300 FP (6.7%), all `docs_literal` |
 | Split-secret leak | `python3 evaluate_split_custom.py` | built-in ~14.5% |
 | Two concurrent sessions | `python3 evaluate_concurrent_sessions.py` | mix 0 |
+| Multi-turn local (300×3) | `python3 evaluate_multi_turn.py` | leak 0 in 900 turns; same token |
 | Span F1 and partial leak (Table 13) | `python3 evaluate_position_partial.py` | span F1≈0.99; partial 0 |
 | Length × density latency (Table 14) | `python3 evaluate_latency_sweep.py` | p50 ms; ~13–15 ms at 32k chars |
 | Naive regex + Gitleaks + TruffleHog (Table 11) | `python3 compare_scanners_n300.py` | naive F1≈0.62; Gitleaks ≈0.38; TruffleHog ≈0.27 |

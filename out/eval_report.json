@@ -1,6 +1,6 @@
 {
   "n_samples": 300,
-  "protocol": "değer kümesi kesişimi (mikro); konum F1 iddia edilmez",
+  "protocol": "değer kümesi kesişimi (mikro); konum F1 için evaluate_position_partial.py",
   "finding_level": {
     "tp": 446,
     "fp": 0,

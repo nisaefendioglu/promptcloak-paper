@@ -1,0 +1,12 @@
+{
+  "n_sessions": 300,
+  "n_turns": 3,
+  "total_user_turns": 900,
+  "leak_sessions": 0,
+  "leak_turns": 0,
+  "token_mismatch_sessions": 0,
+  "known_value_miss_turn2": 0,
+  "roundtrip_fail": 0,
+  "clean_sessions": 300,
+  "note_tr": "Aynı MaskingEngine, turlar arasında clear yok. Canlı model yok. Tur 1 ve 3 kod; tur 2 takip + 1. sır. Ölçülen: giden metinde düz sır, aynı değer→aynı simge, yerel unmask."
+}
