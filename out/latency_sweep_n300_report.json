@@ -1,0 +1,161 @@
+{
+  "environment": {
+    "os": "Darwin 25.2.0",
+    "machine": "arm64",
+    "python": "3.14.2",
+    "warmup": 8,
+    "repeats_per_cell": 25,
+    "timer": "time.perf_counter; only MaskingEngine.mask"
+  },
+  "natural_n300_by_length": {
+    "kısa (≤80)": {
+      "n": 435,
+      "avg": 0.036,
+      "p50": 0.036,
+      "p95": 0.042
+    },
+    "orta (81–150)": {
+      "n": 740,
+      "avg": 0.06,
+      "p50": 0.059,
+      "p95": 0.077
+    },
+    "uzun (>150)": {
+      "n": 325,
+      "avg": 0.128,
+      "p50": 0.138,
+      "p95": 0.171
+    }
+  },
+  "natural_n300_by_density": {
+    "1 sır": {
+      "n": 1295,
+      "avg": 0.056,
+      "p50": 0.052,
+      "p95": 0.102
+    },
+    "2–3 sır": {
+      "n": 30,
+      "avg": 0.054,
+      "p50": 0.049,
+      "p95": 0.066
+    },
+    "4–5 sır": {
+      "n": 175,
+      "avg": 0.154,
+      "p50": 0.153,
+      "p95": 0.18
+    }
+  },
+  "constructed_length_x_density": [
+    {
+      "target_length": 200,
+      "n_secrets": 1,
+      "actual_length": 200,
+      "n": 25,
+      "avg": 0.118,
+      "p50": 0.096,
+      "p95": 0.14
+    },
+    {
+      "target_length": 200,
+      "n_secrets": 5,
+      "actual_length": 249,
+      "n": 25,
+      "avg": 0.132,
+      "p50": 0.132,
+      "p95": 0.135
+    },
+    {
+      "target_length": 200,
+      "n_secrets": 20,
+      "actual_length": 1009,
+      "n": 25,
+      "avg": 0.548,
+      "p50": 0.533,
+      "p95": 0.588
+    },
+    {
+      "target_length": 2000,
+      "n_secrets": 1,
+      "actual_length": 2000,
+      "n": 25,
+      "avg": 0.893,
+      "p50": 0.869,
+      "p95": 0.908
+    },
+    {
+      "target_length": 2000,
+      "n_secrets": 5,
+      "actual_length": 2000,
+      "n": 25,
+      "avg": 0.942,
+      "p50": 0.915,
+      "p95": 1.012
+    },
+    {
+      "target_length": 2000,
+      "n_secrets": 20,
+      "actual_length": 2000,
+      "n": 25,
+      "avg": 0.994,
+      "p50": 0.981,
+      "p95": 1.041
+    },
+    {
+      "target_length": 8000,
+      "n_secrets": 1,
+      "actual_length": 8000,
+      "n": 25,
+      "avg": 3.39,
+      "p50": 3.35,
+      "p95": 3.481
+    },
+    {
+      "target_length": 8000,
+      "n_secrets": 5,
+      "actual_length": 8000,
+      "n": 25,
+      "avg": 3.479,
+      "p50": 3.42,
+      "p95": 3.632
+    },
+    {
+      "target_length": 8000,
+      "n_secrets": 20,
+      "actual_length": 8000,
+      "n": 25,
+      "avg": 3.868,
+      "p50": 3.833,
+      "p95": 4.013
+    },
+    {
+      "target_length": 32000,
+      "n_secrets": 1,
+      "actual_length": 32000,
+      "n": 25,
+      "avg": 13.538,
+      "p50": 13.406,
+      "p95": 14.087
+    },
+    {
+      "target_length": 32000,
+      "n_secrets": 5,
+      "actual_length": 32000,
+      "n": 25,
+      "avg": 14.624,
+      "p50": 14.217,
+      "p95": 15.392
+    },
+    {
+      "target_length": 32000,
+      "n_secrets": 20,
+      "actual_length": 32000,
+      "n": 25,
+      "avg": 14.779,
+      "p50": 14.713,
+      "p95": 15.451
+    }
+  ],
+  "note_tr": "Doğal N=300 metinleri kısa (35–327 karakter). Uzunluk×yoğunluk ızgarası aynı sentetik anahtar biçimiyle doldurulmuş metindir; tespit skoru değildir."
+}

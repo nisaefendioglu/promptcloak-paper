@@ -81,7 +81,9 @@ chmod +x reproduce.sh
 | `python3 evaluate_hard_negatives.py` | Zor negatif N=300 | 20/300 FP (%6,7), hepsi `docs_literal` |
 | `python3 evaluate_split_custom.py` | Bölünmüş sır | yerleşik sızıntı ~%14,5 |
 | `python3 evaluate_concurrent_sessions.py` | Eşzamanlı 300 çift | karışma 0 |
-| `python3 compare_scanners_n300.py` | Tablo 11 | Gitleaks F1≈0,38; TruffleHog F1≈0,27 |
+| `python3 compare_scanners_n300.py` | Tablo 11 | Naif F1≈0,62; Gitleaks F1≈0,38; TruffleHog F1≈0,27 |
+| `python3 evaluate_position_partial.py` | Tablo 13 | Konum F1≈0,99; kısmi sızıntı 0 |
+| `python3 evaluate_latency_sweep.py` | Tablo 14 | Uzunluk×yoğunluk p50 (ms) |
 
 Hizalı setteki 1,00 genelleme değildir.
 
@@ -99,7 +101,9 @@ masking.py                     mask / unmask / fallback
 fetch_data.py                  N=300 ve split indirme
 generate_hard_negatives_n300.py  tuzak seti
 evaluate*.py                   makale kesitleri
-compare_scanners_n300.py       Tablo 11
+compare_scanners_n300.py       Tablo 11 (naif + tarayıcı)
+evaluate_position_partial.py   Tablo 13
+evaluate_latency_sweep.py      Tablo 14
 reproduce.sh                   tüm kesitler
 data/                          veri ve uzantılar
 out/                           beklenen özet raporlar
@@ -198,7 +202,9 @@ chmod +x reproduce.sh
 | `python3 evaluate_hard_negatives.py` | Hard-negative N=300 | 20/300 FP (6.7%), all `docs_literal` |
 | `python3 evaluate_split_custom.py` | Split secret | built-in leak ~14.5% |
 | `python3 evaluate_concurrent_sessions.py` | Concurrent 300 pairs | mix 0 |
-| `python3 compare_scanners_n300.py` | Table 11 | Gitleaks F1≈0.38; TruffleHog F1≈0.27 |
+| `python3 compare_scanners_n300.py` | Table 11 | Naive F1≈0.62; Gitleaks F1≈0.38; TruffleHog F1≈0.27 |
+| `python3 evaluate_position_partial.py` | Table 13 | Span F1≈0.99; partial leak 0 |
+| `python3 evaluate_latency_sweep.py` | Table 14 | Length×density p50 (ms) |
 
 The 1.00 score on the aligned set is not generalization.
 
@@ -216,7 +222,9 @@ masking.py                     mask / unmask / fallback
 fetch_data.py                  N=300 and split download
 generate_hard_negatives_n300.py  trap set
 evaluate*.py                   paper slices
-compare_scanners_n300.py       Table 11
+compare_scanners_n300.py       Table 11 (naive + scanners)
+evaluate_position_partial.py   Table 13
+evaluate_latency_sweep.py      Table 14
 reproduce.sh                   all slices
 data/                          data and extensions
 out/                           expected summary reports

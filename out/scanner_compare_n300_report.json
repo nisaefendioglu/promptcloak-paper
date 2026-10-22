@@ -1,6 +1,6 @@
 {
   "n_samples": 300,
-  "protocol": "değer kümesi kesişimi; tarayıcıda alt dizgi eşleşmesi kabul",
+  "protocol": "değer kümesi kesişimi; tarayıcıda alt dizgi eşleşmesi kabul; naif=tırnaklı≥8 veya çıplak≥20",
   "promptcloak": {
     "tp": 446,
     "fp": 0,
@@ -8,6 +8,14 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1": 1.0
+  },
+  "naive_regex": {
+    "tp": 298,
+    "fp": 218,
+    "fn": 148,
+    "precision": 0.5775,
+    "recall": 0.6682,
+    "f1": 0.6195
   },
   "gitleaks": {
     "tp": 105,

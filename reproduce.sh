@@ -8,6 +8,8 @@ python3 evaluate_clean.py
 python3 evaluate_hard_negatives.py
 python3 evaluate_split_custom.py
 python3 evaluate_concurrent_sessions.py
+python3 evaluate_position_partial.py
+python3 evaluate_latency_sweep.py
 if command -v gitleaks >/dev/null && command -v trufflehog >/dev/null; then
   python3 compare_scanners_n300.py
 else

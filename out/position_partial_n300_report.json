@@ -1,0 +1,26 @@
+{
+  "n_samples": 300,
+  "gold_spans": 466,
+  "pred_spans": 460,
+  "protocol": "GT span = değerin metindeki her geçişi; pred = MaskingEngine start/end. Tam: (start,end,değer) bire bir. Örtüşme: IoU≥0,5 ve aynı/alt dizgi değer. Kısmi sızıntı: maskeli metinde GT değerinin en az yarısı (min 4 char) kalır.",
+  "exact_span": {
+    "tp": 460,
+    "fp": 0,
+    "fn": 6,
+    "precision": 1.0,
+    "recall": 0.9871,
+    "f1": 0.9935
+  },
+  "overlap_iou_0_5": {
+    "tp": 460,
+    "fp": 0,
+    "fn": 6,
+    "precision": 1.0,
+    "recall": 0.9871,
+    "f1": 0.9935
+  },
+  "leakage": {
+    "full_value_still_in_masked": 0,
+    "partial_half_or_more": 0
+  }
+}

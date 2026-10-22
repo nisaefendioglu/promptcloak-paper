@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Aynı N=300 sentetik sette PromptCloak / Gitleaks / TruffleHog (değer kümesi)."""
+"""Aynı N=300: PromptCloak / naif regex / Gitleaks / TruffleHog (değer kümesi)."""
 
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import tempfile
@@ -33,6 +34,29 @@ def _prf(tp: int, fp: int, fn: int) -> dict:
         "recall": round(r, 4),
         "f1": round(f1, 4),
     }
+
+
+# İki kural: tırnaklı ≥8 karakter; çıplak [A-Za-z0-9_+\-/=]{20,}.
+# PromptCloak kataloğu kopyalanmaz.
+_NAIVE_QUOTED = re.compile(r"""(?P<q>['"])(?P<v>[^'"\s]{8,})(?P=q)""")
+_NAIVE_BARE = re.compile(r"(?<![A-Za-z0-9])[A-Za-z0-9_+\-/=]{20,}(?![A-Za-z0-9])")
+
+
+def naive_preds(text: str) -> set[str]:
+    found = {m.group("v") for m in _NAIVE_QUOTED.finditer(text)}
+    found.update(m.group(0) for m in _NAIVE_BARE.finditer(text))
+    return found
+
+
+def naive_regex(records: list[dict]) -> dict:
+    tp = fp = fn = 0
+    for rec in records:
+        gt = _gt(rec)
+        pred = naive_preds(rec["code_text"])
+        tp += len(gt & pred)
+        fp += len(pred - gt)
+        fn += len(gt - pred)
+    return _prf(tp, fp, fn)
 
 
 def promptcloak(records: list[dict]) -> dict:
@@ -186,6 +210,7 @@ def by_category_promptcloak(records: list[dict]) -> dict:
 def main() -> None:
     records = json.loads(N300.read_text(encoding="utf-8"))["records"]
     pc = promptcloak(records)
+    naive = naive_regex(records)
     cats = by_category_promptcloak(records)
     tmp = Path(tempfile.mkdtemp(prefix="pc_scan_"))
     try:
@@ -195,8 +220,9 @@ def main() -> None:
         shutil.rmtree(tmp, ignore_errors=True)
     report = {
         "n_samples": len(records),
-        "protocol": "değer kümesi kesişimi; tarayıcıda alt dizgi eşleşmesi kabul",
+        "protocol": "değer kümesi kesişimi; tarayıcıda alt dizgi eşleşmesi kabul; naif=tırnaklı≥8 veya çıplak≥20",
         "promptcloak": pc,
+        "naive_regex": naive,
         "gitleaks": gl,
         "trufflehog": th,
         "gitleaks_version": gl_ver,
@@ -209,7 +235,7 @@ def main() -> None:
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps({k: report[k] for k in ("promptcloak", "gitleaks", "trufflehog", "gitleaks_version", "trufflehog_version")}, ensure_ascii=False, indent=2))
+    print(json.dumps({k: report[k] for k in ("promptcloak", "naive_regex", "gitleaks", "trufflehog", "gitleaks_version", "trufflehog_version")}, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
